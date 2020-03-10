@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="24" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
-	<ext_resource path="res://scenes/player.tscn" type="PackedScene" index="3"></ext_resource>
-	<ext_resource path="res://images/tileset.png" type="Texture" index="11"></ext_resource>
-	<ext_resource path="res://scenes/overlay.xml" type="TileSet" index="0"></ext_resource>
-	<ext_resource path="res://scenes/teleport.xscn" type="PackedScene" index="8"></ext_resource>
-	<ext_resource path="res://images/hubbg2.png" type="Texture" index="13"></ext_resource>
-	<ext_resource path="res://scenes/checkpoint.scn" type="PackedScene" index="4"></ext_resource>
-	<ext_resource path="res://scenes/worm.xscn" type="PackedScene" index="10"></ext_resource>
-	<ext_resource path="res://scenes/marker.xscn" type="PackedScene" index="9"></ext_resource>
-	<ext_resource path="res://images/mobsheet.png" type="Texture" index="5"></ext_resource>
-	<ext_resource path="res://sounds/mage_shoot.smp" type="Sample" index="6"></ext_resource>
-	<ext_resource path="res://images/hubbg3.png" type="Texture" index="12"></ext_resource>
-	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="7"></ext_resource>
-	<ext_resource path="res://scenes/outer.xml" type="TileSet" index="1"></ext_resource>
-	<ext_resource path="res://scenes/stone.xml" type="TileSet" index="2"></ext_resource>
-	<ext_resource path="res://images/hubbg1.png" type="Texture" index="14"></ext_resource>
+<resource_file type="PackedScene" subresource_count="39" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
+	<ext_resource path="res://images/hubbg2.png" type="Texture" index="23"></ext_resource>
+	<ext_resource path="res://images/tileset.png" type="Texture" index="18"></ext_resource>
+	<ext_resource path="res://images/hubbg1.png" type="Texture" index="24"></ext_resource>
+	<ext_resource path="res://images/hubbg3.png" type="Texture" index="22"></ext_resource>
+	<ext_resource path="res://scenes/overlay.xml" type="TileSet" index="8"></ext_resource>
+	<ext_resource path="res://images/mobsheet.png" type="Texture" index="12"></ext_resource>
+	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="4"></ext_resource>
+	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://images/snowbg1.png" type="Texture" index="21"></ext_resource>
+	<ext_resource path="res://sounds/mage_shoot.smp" type="Sample" index="13"></ext_resource>
+	<ext_resource path="res://scenes/outer.xml" type="TileSet" index="10"></ext_resource>
+	<ext_resource path="res://scenes/stone.xml" type="TileSet" index="11"></ext_resource>
+	<ext_resource path="res://scenes/l1_classmates.xscn" type="PackedScene" index="7"></ext_resource>
+	<ext_resource path="res://scenes/teleport.xscn" type="PackedScene" index="15"></ext_resource>
+	<ext_resource path="res://scenes/l1_bossroom.scn" type="PackedScene" index="6"></ext_resource>
+	<ext_resource path="res://scenes/worm.xscn" type="PackedScene" index="17"></ext_resource>
+	<ext_resource path="res://scenes/checkpoint.scn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scenes/l1_arenasplit.scn" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://images/snowbg2.png" type="Texture" index="20"></ext_resource>
+	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="1"></ext_resource>
+	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="14"></ext_resource>
+	<ext_resource path="res://images/snowbg3.png" type="Texture" index="19"></ext_resource>
+	<ext_resource path="res://scenes/player.tscn" type="PackedScene" index="9"></ext_resource>
+	<ext_resource path="res://scenes/marker.xscn" type="PackedScene" index="16"></ext_resource>
+	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="2"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 92, 2 </vector2>
@@ -207,25 +217,161 @@
 			<string> "priority" </string>
 			<int> 0 </int>
 			<string> "sample" </string>
-			<resource  external="6">  </resource>
+			<resource  external="13">  </resource>
 		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://13">
+		<string name="resource/name"> "Off" </string>
+		<real name="length"> 0.06 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.05 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "backgroundcontroller/Background/ParallaxLayer/Third:visibility/visible" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> False </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "backgroundcontroller/Background/ParallaxLayer/Second:visibility/visible" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> False </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "backgroundcontroller/Background/ParallaxLayer/First:visibility/visible" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<bool name="tracks/2/imported"> False </bool>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> False </bool>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://11">
+		<string name="resource/name"> "On" </string>
+		<real name="length"> 0.06 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.05 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "backgroundcontroller/Background/ParallaxLayer/Third:visibility/visible" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> True </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "backgroundcontroller/Background/ParallaxLayer/Second:visibility/visible" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> True </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "backgroundcontroller/Background/ParallaxLayer/First:visibility/visible" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<bool name="tracks/2/imported"> False </bool>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> True </bool>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://9">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 10, 35.3684 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://10">
+		<string name="script/source"> "extends Area2D&#000a;&#000a;# class member variables go here, for example:&#000a;# var a = 2&#000a;# var b = &quot;textvar&quot;&#000a;var player = preload(&quot;res://scenes/player.gd&quot;)&#000a;var background1&#000a;var controller&#000a;&#000a;func _ready():&#000a;&#0009;background1 = get_parent()&#000a;&#0009;controller = get_node(&quot;/root/Controller&quot;)&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;func _on_transition_body_enter( body ):&#000a;&#0009;if body extends player:&#000a;&#0009;&#0009;print(&quot;off&quot;)&#000a;&#0009;&#0009;background1.play(&quot;Off&quot;)&#000a;&#0009;&#0009;controller.snd_manager.change_song(&quot;res://sounds/undine.ogg&quot;)&#000a;" </string>
+
+	</resource>
+	<resource type="GDScript" path="local://12">
+		<string name="script/source"> "extends Area2D&#000a;&#000a;# class member variables go here, for example:&#000a;# var a = 2&#000a;# var b = &quot;textvar&quot;&#000a;var player = preload(&quot;res://scenes/player.gd&quot;)&#000a;var background1&#000a;var controller&#000a;&#000a;func _ready():&#000a;&#0009;background1 = get_parent()&#000a;&#0009;controller = get_node(&quot;/root/Controller&quot;)&#000a;&#0009;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;func _on_transition2_body_enter( body ):&#000a;&#0009;if body extends player:&#000a;&#0009;&#0009;print(&quot;on&quot;)&#000a;&#0009;&#0009;background1.play(&quot;On&quot;)&#000a;&#0009;&#0009;&#000a;&#0009;&#0009;controller.snd_manager.change_song(&quot;res://sounds/snow.ogg&quot;)&#000a;" </string>
 
 	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
-			<int> 1 </int>
+			<int> 3 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				19, 14, 131, 130, 2, 0 </int_array>
+			<int_array  len="18"> 				30, 25, 148, 147, 2, 0, 48, 48, 150, 149, 2, 0, 50, 50, 150, 151, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="132">
+			<string_array  len="152">
 				<string> "Node2D" </string>
 				<string> "__meta__" </string>
-				<string> "Overlay" </string>
+				<string> "Part2" </string>
+				<string> "editor/display_folded" </string>
 				<string> "transform/pos" </string>
+				<string> "Checkpoints" </string>
+				<string> "Checkpoint" </string>
+				<string> "id" </string>
+				<string> "Checkpoint1" </string>
+				<string> "IciclePit" </string>
+				<string> "Entrance" </string>
+				<string> "ImpMix" </string>
+				<string> "Mage Stairs" </string>
+				<string> "Arena Split" </string>
+				<string> "Boss Room" </string>
+				<string> "Classmate" </string>
+				<string> "Overlay" </string>
 				<string> "z/z" </string>
 				<string> "mode" </string>
 				<string> "tile_set" </string>
@@ -243,6 +389,7 @@
 				<string> "occluder/light_mask" </string>
 				<string> "tile_data" </string>
 				<string> "TileMap" </string>
+				<string> "Player" </string>
 				<string> "Polygon2D" </string>
 				<string> "polygon" </string>
 				<string> "uv" </string>
@@ -259,13 +406,8 @@
 				<string> "Polygon2D 2" </string>
 				<string> "transform/scale" </string>
 				<string> "Stone" </string>
-				<string> "Player" </string>
-				<string> "Checkpoints" </string>
-				<string> "editor/display_folded" </string>
-				<string> "Checkpoint" </string>
 				<string> "visibility/visible" </string>
 				<string> "Checkpoint2" </string>
-				<string> "id" </string>
 				<string> "Events" </string>
 				<string> "Intro" </string>
 				<string> "input/pickable" </string>
@@ -321,7 +463,6 @@
 				<string> "default/reverb_send" </string>
 				<string> "default/chorus_send" </string>
 				<string> "CameraAnchor" </string>
-				<string> "CameraAnchor1" </string>
 				<string> "Teleport" </string>
 				<string> "level" </string>
 				<string> "Enemies" </string>
@@ -335,7 +476,14 @@
 				<string> "Sprite3" </string>
 				<string> "Sprite4" </string>
 				<string> "Sprite2" </string>
-				<string> "ParallaxLayer" </string>
+				<string> "backgroundhandler" </string>
+				<string> "backgroundcontroller" </string>
+				<string> "anims/Off" </string>
+				<string> "anims/On" </string>
+				<string> "transition1" </string>
+				<string> "transition2" </string>
+				<string> "Background2" </string>
+				<string> "ParallaxBackground" </string>
 				<string> "layer" </string>
 				<string> "rotation" </string>
 				<string> "scale" </string>
@@ -345,37 +493,62 @@
 				<string> "scroll/limit_begin" </string>
 				<string> "scroll/limit_end" </string>
 				<string> "scroll/ignore_camera_zoom" </string>
-				<string> "ParallaxBackground" </string>
 				<string> "Third" </string>
 				<string> "motion/scale" </string>
 				<string> "motion/offset" </string>
 				<string> "motion/mirroring" </string>
+				<string> "ParallaxLayer" </string>
+				<string> "region_rect" </string>
 				<string> "Second" </string>
 				<string> "First" </string>
+				<string> "Background" </string>
 				<string> "_on_Timer_timeout" </string>
 				<string> "timeout" </string>
+				<string> "_on_transition_body_enter" </string>
+				<string> "body_enter" </string>
+				<string> "_on_transition2_body_enter" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 43 </int>
+			<int> 68 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="755"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 20, 2, -1, 18, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 3, 12, 9, 13, 9, 14, 10, 15, 11, 16, 12, 17, 12, 18, 12, 19, 13, 1, 14, 0, 0, 0, 20, 20, -1, 16, 5, 3, 6, 15, 7, 5, 8, 6, 9, 7, 10, 8, 11, 3, 12, 9, 13, 9, 14, 10, 15, 11, 16, 12, 17, 12, 18, 12, 19, 16, 1, 17, 0, 2, 0, 21, 21, -1, 12, 22, 18, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 22, 29, 24, 30, 11, 31, 9, 32, 25, 1, 26, 0, 2, 0, 21, 33, -1, 12, 22, 27, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 22, 29, 24, 30, 11, 31, 9, 32, 25, 1, 28, 0, 2, 0, 21, 34, -1, 14, 3, 29, 35, 30, 22, 31, 23, 19, 24, 20, 25, 21, 26, 22, 27, 23, 28, 22, 29, 24, 30, 11, 31, 9, 32, 25, 1, 32, 0, 0, 0, 20, 36, -1, 16, 5, 3, 6, 33, 7, 5, 8, 6, 9, 7, 10, 8, 11, 3, 12, 9, 13, 9, 14, 10, 15, 11, 16, 12, 17, 12, 18, 12, 19, 34, 1, 35, 0, 0, 0, 2147483647, 37, 36, 0, 0, 0, 0, 0, 38, -1, 2, 39, 37, 1, 38, 0, 8, 0, 2147483647, 40, 39, 2, 41, 9, 3, 40, 0, 8, 0, 2147483647, 42, 39, 2, 3, 41, 43, 12, 0, 0, 0, 0, 44, -1, 1, 1, 42, 0, 11, 0, 55, 45, -1, 10, 3, 43, 46, 37, 47, 44, 48, 45, 49, 9, 50, 46, 51, 47, 52, 48, 53, 10, 54, 49, 0, 12, 0, 56, 56, -1, 4, 3, 50, 57, 44, 58, 9, 59, 3, 0, 11, 0, 55, 60, -1, 10, 3, 51, 46, 37, 47, 52, 48, 53, 49, 9, 50, 46, 51, 47, 52, 48, 53, 10, 54, 54, 0, 14, 0, 56, 56, -1, 4, 3, 55, 57, 52, 58, 9, 59, 56, 0, 14, 0, 61, 61, -1, 5, 3, 57, 62, 58, 63, 59, 64, 59, 65, 60, 0, 14, 0, 66, 66, -1, 10, 67, 12, 68, 11, 69, 61, 70, 62, 71, 63, 72, 64, 73, 37, 74, 10, 75, 65, 76, 66, 0, 14, 0, 77, 77, -1, 1, 3, 67, 0, 14, 0, 78, 78, -1, 4, 79, 12, 80, 68, 81, 37, 82, 9, 0, 14, 0, 83, 83, -1, 14, 84, 12, 85, 69, 86, 11, 87, 10, 88, 11, 89, 11, 90, 11, 91, 3, 92, 11, 93, 11, 94, 11, 95, 8, 96, 11, 97, 11, 0, 11, 0, 2147483647, 98, 70, 1, 3, 71, 0, 11, 0, 2147483647, 99, 70, 2, 3, 72, 35, 73, 0, 11, 0, 2147483647, 100, 74, 2, 3, 75, 101, 76, 0, 0, 0, 0, 102, -1, 2, 39, 37, 1, 77, 0, 24, 0, 2147483647, 103, 78, 1, 3, 79, 0, 24, 0, 2147483647, 104, 78, 1, 3, 80, 0, 24, 0, 2147483647, 105, 81, 1, 3, 82, 0, 24, 0, 2147483647, 106, 81, 1, 3, 83, 0, 0, 0, 0, 107, -1, 0, 0, 0, 0, 0, 108, -1, 2, 39, 37, 1, 84, 0, 30, 0, 61, 61, -1, 5, 3, 85, 62, 86, 63, 59, 64, 59, 65, 87, 0, 30, 0, 61, 109, -1, 5, 3, 88, 62, 86, 63, 59, 64, 59, 65, 89, 0, 30, 0, 61, 110, -1, 5, 3, 90, 62, 86, 63, 59, 64, 59, 65, 91, 0, 30, 0, 61, 111, -1, 5, 3, 92, 62, 86, 63, 59, 64, 59, 65, 93, 0, 30, 0, 61, 112, -1, 5, 3, 94, 62, 86, 63, 59, 64, 59, 65, 95, 0, 0, 0, 123, 113, -1, 10, 114, 56, 26, 22, 115, 11, 116, 24, 117, 22, 118, 22, 119, 24, 120, 22, 121, 22, 122, 37, 0, 36, 0, 113, 124, -1, 4, 125, 96, 126, 22, 127, 97, 1, 98, 0, 37, 0, 61, 61, -1, 3, 3, 99, 62, 100, 1, 101, 0, 36, 0, 113, 128, -1, 4, 125, 102, 126, 22, 127, 97, 1, 103, 0, 39, 0, 61, 61, -1, 3, 3, 99, 62, 104, 1, 105, 0, 36, 0, 113, 129, -1, 4, 125, 106, 126, 22, 127, 97, 1, 107, 0, 41, 0, 61, 61, -1, 3, 3, 108, 62, 109, 1, 110, 0 </int_array>
+			<int_array  len="1088"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 0, 2, -1, 2, 3, 1, 4, 2, 0, 1, 0, 0, 5, -1, 1, 4, 3, 0, 1, 0, 2147483647, 6, 4, 2, 4, 5, 7, 6, 0, 1, 0, 2147483647, 8, 4, 2, 4, 7, 7, 8, 0, 1, 0, 2147483647, 9, 9, 1, 4, 10, 0, 1, 0, 2147483647, 10, 11, 2, 3, 1, 4, 12, 0, 1, 0, 2147483647, 11, 13, 1, 4, 14, 0, 1, 0, 2147483647, 12, 15, 1, 4, 16, 0, 1, 0, 2147483647, 13, 17, 1, 4, 18, 0, 1, 0, 2147483647, 14, 19, 1, 4, 20, 0, 1, 0, 2147483647, 15, 21, 1, 4, 22, 0, 0, 0, 33, 16, -1, 18, 4, 23, 17, 8, 18, 24, 19, 25, 20, 26, 21, 27, 22, 28, 23, 6, 24, 24, 25, 29, 26, 29, 27, 30, 28, 31, 29, 32, 30, 32, 31, 32, 32, 33, 1, 34, 0, 0, 0, 2147483647, 34, 35, 0, 0, 0, 0, 33, 33, -1, 16, 18, 24, 19, 36, 20, 26, 21, 27, 22, 28, 23, 6, 24, 24, 25, 29, 26, 29, 27, 30, 28, 31, 29, 32, 30, 32, 31, 32, 32, 37, 1, 38, 0, 14, 0, 35, 35, -1, 12, 36, 39, 37, 40, 38, 41, 39, 42, 40, 43, 41, 44, 42, 43, 43, 45, 44, 31, 45, 29, 46, 46, 1, 47, 0, 14, 0, 35, 47, -1, 12, 36, 48, 37, 40, 38, 41, 39, 42, 40, 43, 41, 44, 42, 43, 43, 45, 44, 31, 45, 29, 46, 46, 1, 49, 0, 14, 0, 35, 48, -1, 14, 4, 50, 49, 51, 36, 52, 37, 40, 38, 41, 39, 42, 40, 43, 41, 44, 42, 43, 43, 45, 44, 31, 45, 29, 46, 46, 1, 53, 0, 0, 0, 33, 50, -1, 16, 18, 24, 19, 54, 20, 26, 21, 27, 22, 28, 23, 6, 24, 24, 25, 29, 26, 29, 27, 30, 28, 31, 29, 32, 30, 32, 31, 32, 32, 55, 1, 56, 0, 0, 0, 0, 5, -1, 2, 3, 1, 1, 57, 0, 19, 0, 2147483647, 6, 4, 2, 51, 29, 4, 58, 0, 19, 0, 2147483647, 52, 4, 2, 4, 59, 7, 32, 0, 0, 0, 0, 53, -1, 1, 1, 60, 0, 22, 0, 64, 54, -1, 10, 4, 61, 55, 1, 56, 62, 57, 63, 58, 29, 59, 64, 60, 65, 61, 66, 62, 30, 63, 67, 0, 23, 0, 65, 65, -1, 4, 4, 68, 66, 62, 67, 29, 68, 24, 0, 22, 0, 64, 69, -1, 10, 4, 69, 55, 1, 56, 70, 57, 71, 58, 29, 59, 64, 60, 65, 61, 66, 62, 30, 63, 72, 0, 25, 0, 65, 65, -1, 4, 4, 73, 66, 70, 67, 29, 68, 74, 0, 25, 0, 70, 70, -1, 5, 4, 75, 71, 76, 72, 77, 73, 77, 74, 78, 0, 25, 0, 75, 75, -1, 10, 76, 32, 77, 31, 78, 79, 79, 80, 80, 81, 81, 82, 82, 1, 83, 30, 84, 83, 85, 84, 0, 25, 0, 86, 86, -1, 1, 4, 85, 0, 25, 0, 87, 87, -1, 4, 88, 32, 89, 86, 90, 1, 91, 29, 0, 25, 0, 92, 92, -1, 14, 93, 32, 94, 87, 95, 31, 96, 30, 97, 31, 98, 31, 99, 31, 100, 24, 101, 31, 102, 31, 103, 31, 104, 6, 105, 31, 106, 31, 0, 22, 0, 2147483647, 107, 88, 1, 4, 89, 0, 22, 0, 2147483647, 108, 90, 2, 4, 91, 109, 92, 0, 0, 0, 0, 110, -1, 2, 3, 1, 1, 93, 0, 34, 0, 2147483647, 111, 94, 1, 4, 95, 0, 34, 0, 2147483647, 112, 94, 1, 4, 96, 0, 34, 0, 2147483647, 113, 97, 1, 4, 98, 0, 34, 0, 2147483647, 114, 97, 1, 4, 99, 0, 0, 0, 0, 115, -1, 0, 0, 0, 0, 0, 116, -1, 1, 1, 100, 0, 40, 0, 70, 70, -1, 5, 4, 101, 71, 102, 72, 77, 73, 77, 74, 103, 0, 40, 0, 70, 117, -1, 5, 4, 104, 71, 102, 72, 77, 73, 77, 74, 105, 0, 40, 0, 70, 118, -1, 5, 4, 106, 71, 102, 72, 77, 73, 77, 74, 107, 0, 40, 0, 70, 119, -1, 5, 4, 108, 71, 102, 72, 77, 73, 77, 74, 109, 0, 40, 0, 70, 120, -1, 5, 4, 110, 71, 102, 72, 77, 73, 77, 74, 111, 0, 0, 0, 0, 121, -1, 2, 4, 112, 49, 113, 0, 46, 0, 75, 122, -1, 9, 76, 32, 77, 31, 78, 79, 123, 114, 124, 115, 82, 1, 83, 30, 84, 83, 85, 116, 0, 47, 0, 64, 125, -1, 11, 4, 112, 49, 117, 55, 1, 56, 118, 57, 119, 58, 29, 59, 64, 60, 65, 61, 66, 62, 30, 63, 120, 0, 48, 0, 65, 65, -1, 4, 4, 121, 66, 118, 67, 29, 68, 24, 0, 47, 0, 64, 126, -1, 11, 4, 122, 49, 117, 55, 1, 56, 118, 57, 123, 58, 29, 59, 64, 60, 65, 61, 66, 62, 30, 63, 124, 0, 50, 0, 65, 65, -1, 4, 4, 125, 66, 118, 67, 29, 68, 24, 0, 47, 0, 0, 127, -1, 3, 3, 1, 4, 126, 49, 127, 0, 52, 0, 128, 128, -1, 10, 129, 74, 40, 43, 130, 31, 131, 45, 132, 43, 133, 43, 134, 45, 135, 43, 136, 43, 137, 1, 0, 53, 0, 142, 138, -1, 3, 139, 128, 140, 43, 141, 129, 0, 54, 0, 70, 70, -1, 3, 4, 130, 71, 131, 143, 132, 0, 53, 0, 142, 144, -1, 3, 139, 133, 140, 43, 141, 129, 0, 56, 0, 70, 70, -1, 2, 4, 130, 71, 134, 0, 53, 0, 142, 145, -1, 3, 139, 135, 140, 43, 141, 129, 0, 58, 0, 70, 70, -1, 2, 4, 130, 71, 136, 0, 47, 0, 0, 146, -1, 3, 3, 1, 4, 137, 49, 127, 0, 60, 0, 128, 142, -1, 10, 129, 74, 40, 43, 130, 31, 131, 45, 132, 43, 133, 43, 134, 45, 135, 43, 136, 43, 137, 1, 0, 61, 0, 142, 138, -1, 3, 139, 138, 140, 43, 141, 129, 0, 62, 0, 70, 70, -1, 2, 4, 139, 71, 140, 0, 61, 0, 142, 144, -1, 3, 139, 133, 140, 43, 141, 129, 0, 64, 0, 70, 70, -1, 2, 4, 139, 71, 141, 0, 61, 0, 142, 145, -1, 3, 139, 142, 140, 43, 141, 129, 0, 66, 0, 70, 70, -1, 2, 4, 143, 71, 144, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="111" shared="false">
+			<array  len="145" shared="false">
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<vector2> 0, 8 </vector2>
-				<int> 3 </int>
-				<int> 0 </int>
+				<bool> True </bool>
+				<vector2> 240, 137 </vector2>
+				<vector2> 1964, -41 </vector2>
 				<resource  external="0">  </resource>
+				<vector2> 1916, 231 </vector2>
+				<int> 2 </int>
+				<vector2> 3948, 199 </vector2>
+				<int> 3 </int>
+				<resource  external="1">  </resource>
+				<vector2> 2156, -281 </vector2>
+				<resource  external="2">  </resource>
+				<vector2> 2028, 103 </vector2>
+				<resource  external="3">  </resource>
+				<vector2> 3004, 119 </vector2>
+				<resource  external="4">  </resource>
+				<vector2> 3868, 71 </vector2>
+				<resource  external="5">  </resource>
+				<vector2> 2876, -313 </vector2>
+				<resource  external="6">  </resource>
+				<vector2> 1644, -217 </vector2>
+				<resource  external="7">  </resource>
+				<vector2> 1196, -217 </vector2>
+				<vector2> 0, 8 </vector2>
+				<int> 0 </int>
+				<resource  external="8">  </resource>
 				<vector2> 16, 16 </vector2>
 				<int> 16 </int>
 				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
-				<int> 2 </int>
 				<bool> False </bool>
 				<real> 1 </real>
 				<real> 0 </real>
@@ -385,13 +558,14 @@
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  external="1">  </resource>
-				<int_array  len="612"> 					-983050, 3, -917514, 3, -851978, 3, -786442, 3, -720906, 3, -655370, 3, -589834, 3, -524298, 3, -458762, 3, -393226, 3, -327690, 3, -262155, 8, -262154, 7, -196619, 3, -131083, 3, -65547, 3, -11, 3, 65525, 3, 131061, 3, 196597, 3, 262133, 3, 327669, 10, 327670, 5, 393206, 3, 458742, 3, 393265, 4, 393266, 0, 393267, 0, 393268, 0, 393269, 0, 393270, 0, 393271, 0, 393272, 0, 393273, 0, 393274, 0, 393275, 0, 393276, 0, 393277, 5, 524278, 10, 524279, 5, 458767, 4, 458768, 0, 458769, 0, 458770, 0, 458771, 0, 458772, 0, 458773, 0, 458774, 0, 458775, 0, 458776, 5, 458800, 4, 458801, 11, 458813, 3, 458838, 2, 589815, 10, 589816, 5, 524303, 2, 524312, 3, 524336, 2, 524349, 10, 524350, 5, 524374, 2, 655352, 10, 655353, 5, 589839, 2, 589848, 3, 589872, 2, 589886, 10, 589887, 0, 589888, 5, 589910, 2, 720889, 3, 655375, 2, 655384, 3, 655408, 2, 655424, 3, 655446, 2, 786425, 10, 786426, 5, 720911, 2, 720920, 3, 720944, 2, 720960, 3, 720982, 2, 851962, 3, 786447, 6, 786448, 1, 786449, 9, 786456, 3, 786480, 6, 786481, 9, 786496, 3, 786518, 2, 917498, 3, 851985, 2, 851992, 3, 852017, 2, 852032, 3, 852054, 2, 983034, 3, 917521, 2, 917525, 8, 917526, 1, 917527, 1, 917528, 7, 917553, 2, 917568, 3, 917590, 2, 1048570, 3, 983057, 6, 983058, 1, 983059, 1, 983060, 1, 983061, 7, 983089, 2, 983104, 3, 983126, 6, 983127, 1, 983128, 9, 1114106, 3, 1048625, 2, 1048640, 3, 1048664, 6, 1048665, 9, 1179642, 3, 1114127, 4, 1114128, 0, 1114129, 0, 1114130, 0, 1114131, 0, 1114132, 0, 1114133, 0, 1114134, 0, 1114135, 0, 1114136, 5, 1114161, 2, 1114176, 3, 1114201, 2, 1245178, 3, 1179663, 2, 1179672, 10, 1179673, 0, 1179674, 0, 1179675, 0, 1179676, 0, 1179677, 0, 1179678, 0, 1179679, 0, 1179680, 0, 1179681, 0, 1179682, 0, 1179683, 0, 1179684, 0, 1179685, 0, 1179686, 0, 1179687, 0, 1179688, 0, 1179689, 0, 1179690, 0, 1179691, 0, 1179692, 5, 1179696, 4, 1179697, 11, 1179712, 3, 1179737, 6, 1179738, 1, 1179739, 1, 1179740, 1, 1179741, 1, 1179742, 1, 1179743, 1, 1179744, 1, 1179745, 1, 1179746, 1, 1310714, 3, 1245199, 2, 1245228, 3, 1245232, 2, 1245247, 8, 1245248, 7, 1376250, 10, 1376251, 0, 1376252, 0, 1376253, 0, 1376254, 0, 1376255, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310723, 0, 1310724, 0, 1310725, 0, 1310726, 0, 1310727, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1310731, 0, 1310732, 0, 1310733, 0, 1310734, 0, 1310735, 11, 1310764, 3, 1310768, 2, 1310781, 8, 1310782, 1, 1310783, 7, 1376300, 3, 1376304, 2, 1376314, 8, 1376315, 1, 1376316, 1, 1376317, 7, 1441836, 3, 1441840, 6, 1441841, 9, 1441849, 8, 1441850, 7, 1507372, 3, 1507377, 6, 1507378, 1, 1507379, 1, 1507380, 1, 1507381, 1, 1507382, 1, 1507383, 1, 1507384, 1, 1507385, 7, 1507415, 4, 1507416, 0, 1507417, 0, 1507418, 0, 1507419, 0, 1507420, 0, 1507421, 0, 1507422, 0, 1507423, 0, 1507424, 0, 1507425, 0, 1507426, 0, 1572906, 8, 1572907, 1, 1572908, 7, 1572945, 4, 1572946, 0, 1572947, 0, 1572948, 0, 1572949, 0, 1572950, 0, 1572951, 11, 1638442, 3, 1638443, 1, 1638444, 1, 1638463, 4, 1638464, 0, 1638465, 5, 1638481, 2, 1703978, 3, 1703979, 1, 1703980, 1, 1703996, 4, 1703997, 0, 1703998, 0, 1703999, 11, 1704001, 10, 1704002, 0, 1704003, 5, 1704017, 2, 1769514, 10, 1769515, 0, 1769516, 0, 1769517, 0, 1769518, 0, 1769519, 0, 1769520, 0, 1769521, 0, 1769522, 0, 1769523, 0, 1769524, 0, 1769525, 0, 1769526, 0, 1769527, 0, 1769528, 0, 1769529, 0, 1769530, 0, 1769531, 0, 1769532, 11, 1769538, 9, 1769539, 10, 1769540, 5, 1769553, 2, 1835075, 9, 1835076, 10, 1835077, 0, 1835078, 0, 1835079, 0, 1835080, 0, 1835081, 0, 1835082, 0, 1835083, 0, 1835084, 0, 1835085, 0, 1835086, 0, 1835087, 0, 1835088, 0, 1835089, 11 </int_array>
+				<resource  external="9">  </resource>
+				<resource  external="10">  </resource>
+				<int_array  len="688"> 					-983050, 3, -917514, 3, -851978, 3, -786442, 3, -720906, 3, -655370, 3, -589834, 3, -524298, 3, -458762, 3, -393226, 3, -327690, 3, -262155, 8, -262154, 7, -196619, 3, -131083, 3, -65547, 3, -11, 3, 65525, 3, 131061, 3, 196597, 3, 262133, 3, 327669, 10, 327670, 5, 393206, 3, 458742, 3, 393265, 4, 393266, 0, 393267, 0, 393268, 0, 393269, 0, 393270, 0, 393271, 0, 393272, 0, 393273, 0, 393274, 0, 393275, 0, 393276, 0, 393277, 5, 524278, 10, 524279, 5, 458767, 4, 458768, 0, 458769, 0, 458770, 0, 458771, 0, 458772, 0, 458773, 0, 458774, 0, 458775, 0, 458776, 5, 458800, 4, 458801, 11, 458813, 3, 458838, 2, 589815, 10, 589816, 5, 524303, 2, 524312, 3, 524336, 2, 524349, 10, 524350, 5, 524374, 2, 655352, 10, 655353, 5, 589839, 2, 589848, 3, 589872, 2, 589886, 10, 589887, 0, 589888, 5, 589910, 2, 720889, 3, 655375, 2, 655384, 3, 655408, 2, 655424, 3, 655446, 2, 786425, 10, 786426, 5, 720911, 2, 720920, 3, 720944, 2, 720960, 3, 720982, 2, 851962, 3, 786447, 6, 786448, 1, 786449, 9, 786456, 3, 786480, 6, 786481, 9, 786496, 3, 786518, 2, 917498, 3, 851985, 2, 851992, 3, 852017, 2, 852032, 3, 852054, 2, 983034, 3, 917521, 2, 917525, 8, 917526, 1, 917527, 1, 917528, 7, 917553, 2, 917568, 3, 917590, 2, 1048570, 3, 983057, 6, 983058, 1, 983059, 1, 983060, 1, 983061, 7, 983089, 2, 983104, 3, 983126, 6, 983127, 1, 983128, 9, 1114106, 3, 1048625, 2, 1048640, 3, 1048664, 6, 1048665, 9, 1179642, 3, 1114127, 4, 1114128, 0, 1114129, 0, 1114130, 0, 1114131, 0, 1114132, 0, 1114133, 0, 1114134, 0, 1114135, 0, 1114136, 5, 1114161, 2, 1114176, 3, 1114201, 2, 1245178, 3, 1179663, 2, 1179672, 10, 1179673, 0, 1179674, 0, 1179675, 0, 1179676, 0, 1179677, 0, 1179678, 0, 1179679, 0, 1179680, 0, 1179681, 0, 1179682, 0, 1179683, 0, 1179684, 0, 1179685, 0, 1179686, 0, 1179687, 0, 1179688, 0, 1179689, 0, 1179690, 0, 1179691, 0, 1179692, 5, 1179696, 4, 1179697, 11, 1179712, 3, 1179737, 6, 1179738, 1, 1179739, 1, 1179740, 1, 1179741, 1, 1179742, 1, 1179743, 1, 1179744, 1, 1179745, 1, 1179746, 1, 1179747, 1, 1179748, 1, 1179749, 1, 1179750, 1, 1179751, 1, 1179752, 1, 1179753, 1, 1179754, 1, 1179755, 1, 1179756, 1, 1179757, 1, 1179758, 1, 1179759, 1, 1179760, 1, 1179761, 1, 1179762, 1, 1179763, 1, 1179764, 1, 1179765, 1, 1310714, 3, 1245199, 2, 1245228, 3, 1245232, 2, 1245247, 8, 1245248, 7, 1376250, 10, 1376251, 0, 1376252, 0, 1376253, 0, 1376254, 0, 1376255, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310723, 0, 1310724, 0, 1310725, 0, 1310726, 0, 1310727, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1310731, 0, 1310732, 0, 1310733, 0, 1310734, 0, 1310735, 11, 1310764, 3, 1310768, 2, 1310781, 8, 1310782, 1, 1310783, 7, 1376300, 3, 1376304, 2, 1376314, 8, 1376315, 1, 1376316, 1, 1376317, 7, 1441836, 3, 1441840, 6, 1441841, 9, 1441849, 8, 1441850, 7, 1507372, 3, 1507377, 6, 1507378, 1, 1507379, 1, 1507380, 1, 1507381, 1, 1507382, 1, 1507383, 1, 1507384, 1, 1507385, 7, 1507415, 4, 1507416, 0, 1507417, 0, 1507418, 0, 1507419, 0, 1507420, 0, 1507421, 0, 1507422, 0, 1507423, 0, 1507424, 0, 1507425, 0, 1507426, 0, 1507427, 0, 1507428, 0, 1507429, 0, 1507430, 0, 1507431, 0, 1507432, 0, 1507433, 0, 1507434, 0, 1507435, 0, 1507436, 0, 1507437, 0, 1507438, 0, 1507439, 0, 1507440, 0, 1507441, 0, 1507442, 0, 1507443, 0, 1507444, 0, 1507445, 0, 1572906, 8, 1572907, 1, 1572908, 7, 1572945, 4, 1572946, 0, 1572947, 0, 1572948, 0, 1572949, 0, 1572950, 0, 1572951, 11, 1638442, 3, 1638443, 1, 1638444, 1, 1638463, 4, 1638464, 0, 1638465, 5, 1638481, 2, 1703978, 3, 1703979, 1, 1703980, 1, 1703996, 4, 1703997, 0, 1703998, 0, 1703999, 11, 1704001, 10, 1704002, 0, 1704003, 5, 1704017, 2, 1769514, 10, 1769515, 0, 1769516, 0, 1769517, 0, 1769518, 0, 1769519, 0, 1769520, 0, 1769521, 0, 1769522, 0, 1769523, 0, 1769524, 0, 1769525, 0, 1769526, 0, 1769527, 0, 1769528, 0, 1769529, 0, 1769530, 0, 1769531, 0, 1769532, 11, 1769538, 9, 1769539, 10, 1769540, 5, 1769553, 2, 1835075, 9, 1835076, 10, 1835077, 0, 1835078, 0, 1835079, 0, 1835080, 0, 1835081, 0, 1835082, 0, 1835083, 0, 1835084, 0, 1835085, 0, 1835086, 0, 1835087, 0, 1835088, 0, 1835089, 11 </int_array>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<vector2_array  len="46"> 					-159, -270, -320, -273, -320, 624, 1728, 624, 1728, 96, 1392, 96, 1392, 240, 1424, 240, 1424, 256, 1440, 256, 1440, 288, 1584, 288, 1584, 384, 1408, 384, 1408, 400, 1344, 400, 1311, 400, 1311, 458, 1090, 459, 1072, 437, 1039, 416, 1024, 416, 1024, 432, 976, 432, 976, 448, 672, 448, 672, 384, 704, 384, 704, 304, 384, 304, 384.124, 285.299, 254.941, 286.938, 253.623, 335.162, -96, 336, -96, 192, -112, 192, -112, 160, -128, 160, -128, 144, -144, 144, -144, 128, -160, 128, -160, 80, -176, 80, -176, -77, -159, -77 </vector2_array>
+				<vector2_array  len="46"> 					-159, -270, -320, -273, -320, 624, 1986, 617, 1874, 179, 1389, 151, 1392, 240, 1424, 240, 1424, 256, 1440, 256, 1440, 288, 1537, 291, 1576, 383, 1408, 384, 1408, 400, 1344, 400, 1311, 400, 1311, 458, 1090, 459, 1072, 437, 1039, 416, 1024, 416, 1024, 432, 976, 432, 976, 448, 672, 448, 672, 384, 704, 384, 704, 304, 384, 304, 384.124, 285.299, 254.941, 286.938, 253.623, 335.162, -96, 336, -96, 192, -112, 192, -112, 160, -128, 160, -128, 144, -144, 144, -144, 128, -160, 128, -160, 80, -176, 80, -176, -77, -159, -77 </vector2_array>
 				<vector2_array  len="0"> 					 </vector2_array>
 				<color> 0.133333, 0.12549, 0.203922, 1 </color>
 				<color_array  len="0"> 					 </color_array>
@@ -414,19 +588,16 @@
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  external="2">  </resource>
+				<resource  external="11">  </resource>
 				<int_array  len="52"> 					851983, 4, 851984, 5, 917519, 6, 917520, 7, 1114137, 11, 1245179, 11, 1245180, 8, 1245181, 10, 1245182, 11, 1245183, 11, 1179660, 12, 1179661, 11, 1179662, 11, 1310715, 8, 1310716, 10, 1310717, 11, 1310718, 11, 1310719, 11, 1245196, 14, 1245197, 11, 1245198, 11, 1376298, 11, 1572930, 4, 1572931, 5, 1638466, 6, 1638467, 7 </int_array>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  external="3">  </resource>
-				<bool> True </bool>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  external="4">  </resource>
 				<vector2> -48, 288 </vector2>
 				<vector2> 688, 288 </vector2>
 				<dictionary  shared="false">
@@ -448,7 +619,7 @@
 				<vector2> -80, -74 </vector2>
 				<int> -1 </int>
 				<vector2> 16, 8 </vector2>
-				<resource  external="5">  </resource>
+				<resource  external="12">  </resource>
 				<int> 8 </int>
 				<int> 32 </int>
 				<node_path> ".." </node_path>
@@ -461,21 +632,19 @@
 				<vector2> 12, 5 </vector2>
 				<real> 0.75 </real>
 				<resource  resource_type="SampleLibrary" path="local://8">  </resource>
-				<resource  external="7">  </resource>
+				<resource  external="14">  </resource>
 				<vector2> -16, 272 </vector2>
-				<vector2> 1424, 368 </vector2>
-				<vector2> -1, 1 </vector2>
-				<resource  external="8">  </resource>
-				<vector2> 1568, 336 </vector2>
+				<resource  external="15">  </resource>
+				<vector2> 1581, 524 </vector2>
 				<string> "level1" </string>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  external="9">  </resource>
+				<resource  external="16">  </resource>
 				<vector2> 768, 432 </vector2>
 				<vector2> 943, 432 </vector2>
-				<resource  external="10">  </resource>
+				<resource  external="17">  </resource>
 				<vector2> 824, 432 </vector2>
 				<vector2> 896, 432 </vector2>
 				<dictionary  shared="false">
@@ -483,7 +652,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<vector2> -16, 304 </vector2>
-				<resource  external="11">  </resource>
+				<resource  external="18">  </resource>
 				<int> 43 </int>
 				<vector2> 224, 304 </vector2>
 				<int> 44 </int>
@@ -493,39 +662,39 @@
 				<int> 39 </int>
 				<vector2> 704, 416 </vector2>
 				<int> 45 </int>
-				<vector2> 0.1, 0 </vector2>
+				<vector2> 1741, 340 </vector2>
+				<vector2> 0.40625, 1.48438 </vector2>
+				<resource  resource_type="Animation" path="local://13">  </resource>
+				<resource  resource_type="Animation" path="local://11">  </resource>
+				<string> "" </string>
+				<vector2> 0.40625, 1.48437 </vector2>
+				<resource  resource_type="Shape2D" path="local://9">  </resource>
+				<matrix32> 1, -0, 0, 1, 17.2309, 0.336838 </matrix32>
+				<resource  resource_type="Script" path="local://10">  </resource>
+				<vector2> 17.2309, 0.336838 </vector2>
+				<vector2> 1742, 340 </vector2>
+				<matrix32> 1, -0, 0, 1, -27.0771, 0.673691 </matrix32>
+				<resource  resource_type="Script" path="local://12">  </resource>
+				<vector2> -27.0771, 0.673691 </vector2>
+				<vector2> 7.00024, -7.49997 </vector2>
+				<vector2> 1, 1 </vector2>
+				<vector2> 0.1, 0.05 </vector2>
 				<vector2> 480, 0 </vector2>
-				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
-				<vector2> 240, 96 </vector2>
-				<resource  external="12">  </resource>
-				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
+				<vector2> 240, 56 </vector2>
+				<resource  external="19">  </resource>
+				<rect2> 0, 0, 1000, 120 </rect2>
 				<vector2> 0.4, 0.1 </vector2>
-				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
-				<resource  external="13">  </resource>
-				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
+				<resource  external="20">  </resource>
+				<vector2> 0.8, 0.15 </vector2>
+				<resource  external="21">  </resource>
+				<vector2> 7.00024, -0.499969 </vector2>
+				<vector2> 0.1, 0 </vector2>
+				<vector2> 240, 96 </vector2>
+				<resource  external="22">  </resource>
+				<resource  external="23">  </resource>
 				<vector2> 0.8, 0.3 </vector2>
-				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
 				<vector2> 240, 144 </vector2>
-				<resource  external="14">  </resource>
-				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
+				<resource  external="24">  </resource>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
