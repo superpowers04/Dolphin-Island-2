@@ -91,6 +91,7 @@ func _ready():
 	topbodspr = get_node("TopBody")
 	botbodspr = get_node("LowerBody")
 	set_fixed_process(true)
+	vulnerable = true
 	#bot_sprite.play_backwards("revive")
 
 func _fixed_process(delta):
@@ -325,7 +326,7 @@ func _movement(delta):
 		can_attack = true
 	elif (can_attack and attack && !attacking):
 		can_attack = false
-		if (strong_slash and walk_down):
+		if (strong_slash and walk_up):
 			strong_attack()
 		else:
 			attack()

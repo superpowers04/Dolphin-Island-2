@@ -679,6 +679,46 @@ tracks/3/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:transform/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -11 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CollisionShape2D:transform/scale")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Hitbox/CollisionShape2D1:transform/pos")
+tracks/6/interp = 1
+tracks/6/imported = false
+tracks/6/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -11 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Hitbox/CollisionShape2D1:transform/scale")
+tracks/7/interp = 1
+tracks/7/imported = false
+tracks/7/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=19]
 
@@ -1024,7 +1064,7 @@ samples/sword = {
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 0.8, 0, -8.7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -11 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -1040,15 +1080,14 @@ need_synchro = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0, -8.7 )
-transform/scale = Vector2( 1, 0.8 )
+transform/pos = Vector2( 0, -11 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
 [node name="TopBody" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -11 )
+transform/pos = Vector2( 0, -16 )
 z/z = 2
 texture = ExtResource( 2 )
 vframes = 22
@@ -1065,7 +1104,7 @@ z/z = 1
 texture = ExtResource( 2 )
 vframes = 22
 hframes = 8
-frame = 14
+frame = 24
 __meta__ = {
 "_edit_lock_": true
 }
@@ -1167,7 +1206,7 @@ autoplay = ""
 
 input/pickable = true
 shapes/0/shape = SubResource( 29 )
-shapes/0/transform = Matrix32( 1, 0, 0, 0.7, 0, -7.4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -11 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -1179,8 +1218,7 @@ __meta__ = {
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="Hitbox"]
 
-transform/pos = Vector2( 0, -7.4 )
-transform/scale = Vector2( 1, 0.7 )
+transform/pos = Vector2( 0, -11 )
 shape = SubResource( 29 )
 trigger = false
 _update_shape_index = 0
