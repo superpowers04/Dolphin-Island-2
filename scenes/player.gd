@@ -71,7 +71,8 @@ var controller
 var cutscene = false
 var dash_but
 var Effects2
-
+var topbodspr
+var botbodspr
 
 
 func _ready():
@@ -87,8 +88,10 @@ func _ready():
 	Effects2 = get_node("Effects2")
 	top_sprite = get_node("TopAnim")
 	bot_sprite = get_node("BotAnim")
-	#set_fixed_process(true)
-	bot_sprite.play_backwards("revive")
+	topbodspr = get_node("TopBody")
+	botbodspr = get_node("LowerBody")
+	set_fixed_process(true)
+	#bot_sprite.play_backwards("revive")
 
 func _fixed_process(delta):
 	cutscene = controller.cutscene
@@ -134,27 +137,32 @@ func _movement(delta):
 	if (can_dash and dash_but and (falling or jumping)):
 		velocity.x = 0
 		velocity.y = 0
+		top_sprite.set_current_animation("None")
+		bot_sprite.set_current_animation("Dash")
 		if walk_down and (walk_left or walk_right):
 			dashx = 250 * direction
 			dashy = 200
-			
+			botbodspr.set_frame(88)
 		elif walk_up and (walk_left or walk_right):
 			dashx = 250 * direction
 			dashy = -200
+			botbodspr.set_frame(89)
 		elif walk_up:
 			dashx = 1 * direction
 			dashy = -300
+			botbodspr.set_frame(92)
 		elif walk_down:
 			dashx = 1 * direction
 			dashy = 300
+			botbodspr.set_frame(91)
 		else:
 			dashx = 400 * direction
 			dashy = -1
+			botbodspr.set_frame(90)
 		velocity.x = dashx
 		velocity.y = dashy
 		isdashing = true
-		top_sprite.set_current_animation("None")
-		bot_sprite.set_current_animation("Dash")
+		
 		Effects2.play("Dash")
 		can_dash = false
 		vulnerable = false	
