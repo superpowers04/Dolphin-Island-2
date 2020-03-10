@@ -14,7 +14,10 @@ const MAX_JUMP = 0.105#0.65
 const JUMP_VEL = 220#280
 const MAX_AIR = 0.1 # Due to physics, character is always in the air. This is a tolerance
 const FALL_ANIM_HEIGHT = 0#270
-
+var direction = 1
+var forceduck = false
+var dashy =0
+var dashx =0
 
 # Variables
 # Movement
@@ -24,8 +27,11 @@ var can_jump = true
 var falling = false
 export var attacking = false # player is attacking
 var can_attack = true
+var can_dash = true
 var air_time = 100
 var jump_time
+var storedxspeed = 0
+var isdashing
 # Input
 var walk_left
 var walk_right
@@ -33,6 +39,7 @@ var walk_up
 var walk_down
 var jump
 var attack
+var waitingtodie = false
 # Combat
 var hurtful_class = preload("res://scenes/hurtful.gd")
 var killer_class = preload("res://scenes/killer.gd")
@@ -62,6 +69,10 @@ var sfx
 # Cutscenes
 var controller
 var cutscene = false
+var dash_but
+var Effects2
+
+
 
 func _ready():
 	jump_time = get_node("Jump")
@@ -73,12 +84,15 @@ func _ready():
 	controller.cam_target = self
 	attack_spot = get_node("AttackSpot")
 	effects = get_node("Effects")
+	Effects2 = get_node("Effects2")
 	top_sprite = get_node("TopAnim")
 	bot_sprite = get_node("BotAnim")
-	set_fixed_process(true)
+	#set_fixed_process(true)
+	bot_sprite.play_backwards("revive")
 
 func _fixed_process(delta):
 	cutscene = controller.cutscene
+	
 	if (bot_sprite.get_current_animation() != "Victory" and effects.get_current_animation() != "Invulnerable"):
 		effects.play("UpNone")
 	if(not cutscene):
@@ -88,6 +102,7 @@ func _fixed_process(delta):
 		walk_down = Input.is_action_pressed("ui_down")
 		jump = Input.is_action_pressed("jump")
 		attack = Input.is_action_pressed("attack")
+		dash_but = Input.is_action_pressed("attack2")
 	else:
 		walk_left = false
 		walk_right = false
@@ -95,8 +110,16 @@ func _fixed_process(delta):
 		walk_down = false
 		jump = false
 		attack = false
+	if Input.is_action_pressed("Reset"):
+		controller.life_down()
+		controller.life_down()
+		controller.life_down()
+		controller.life_down()
 	if (not dead):
 		_movement(delta)
+		if waitingtodie:
+			death()
+
 
 func _movement(delta):
 	# gravity
@@ -106,29 +129,85 @@ func _movement(delta):
 	var stop = true
 #	print("V1:" + str(velocity.x) + " F:" + str(force.x))
 	# Sideways movement
-	if (walk_left and not walk_right):
-		if (velocity.x<=WALK_MIN and velocity.x > -WALK_MAX):
-			force.x-=WALK_FORCE
-			stop = false
-			stopped = false
-			if (bot_sprite.get_current_animation() != "Run" and !jumping && !falling):
-				bot_sprite.play("Run")
-			if (top_sprite.get_current_animation() != "Run" and !is_attacking() and !jumping && !falling):
-				top_sprite.play("Run")
+	#print(bot_sprite.get_current_animation() + " " + top_sprite.get_current_animation())
+
+	if (can_dash and dash_but and (falling or jumping)):
+		velocity.x = 0
+		velocity.y = 0
+		if walk_down and (walk_left or walk_right):
+			dashx = 250 * direction
+			dashy = 200
+			
+		elif walk_up and (walk_left or walk_right):
+			dashx = 250 * direction
+			dashy = -200
+		elif walk_up:
+			dashx = 1 * direction
+			dashy = -300
+		elif walk_down:
+			dashx = 1 * direction
+			dashy = 300
 		else:
-			force.x = -WALK_FORCE * STOP_COEFF
-	elif (walk_right and not walk_left):
-		if (velocity.x>=-WALK_MIN and velocity.x < WALK_MAX):
-			force.x+=WALK_FORCE
-			stop = false
-			stopped = false
-			if (bot_sprite.get_current_animation() != "Run" and !jumping && !falling):
-				bot_sprite.play("Run")
-			if (top_sprite.get_current_animation() != "Run" and !is_attacking() and !jumping && !falling ):
-				top_sprite.play("Run")
-		else:
-			force.x = WALK_FORCE * STOP_COEFF
-	
+			dashx = 400 * direction
+			dashy = -1
+		velocity.x = dashx
+		velocity.y = dashy
+		isdashing = true
+		top_sprite.set_current_animation("None")
+		bot_sprite.set_current_animation("Dash")
+		Effects2.play("Dash")
+		can_dash = false
+		vulnerable = false	
+	elif (walk_down and !falling and !jumping or forceduck):
+		if ((velocity.x >= 1 or velocity.x<=-1) and bot_sprite.get_current_animation() != "Slide" ):
+			velocity.x = storedxspeed * 0.5 * direction
+			storedxspeed = 0
+			STOP_FORCE = 200
+			bot_sprite.set_current_animation("Slide")
+			top_sprite.play("Slide")
+			if (velocity.x>=-50 and velocity.x <= 50 ):
+					velocity.x = 200 * direction
+					
+		elif (velocity.x>=-1 and velocity.x <= 1 and bot_sprite.get_current_animation() != "Duck" ):
+			STOP_FORCE = 200
+			velocity.x = storedxspeed * 0.5 * direction
+			storedxspeed = 0
+			bot_sprite.play("Duck")
+			top_sprite.play("Jump")
+	elif !waitingtodie:
+		storedxspeed = 0
+		STOP_FORCE = 1000
+		if (walk_left and not walk_right):
+			if (velocity.x<=WALK_MIN and velocity.x > -WALK_MAX):
+				force.x-=WALK_FORCE
+				stop = false
+				stopped = false
+				if (bot_sprite.get_current_animation() != "Run" and !jumping && !falling and !isdashing):
+					bot_sprite.play("Run")
+				if (top_sprite.get_current_animation() != "Run" and !is_attacking() and !jumping && !falling and !isdashing):
+					top_sprite.play("Run")
+			else:
+				force.x = -WALK_FORCE * STOP_COEFF
+		elif (walk_right and not walk_left):
+			if (velocity.x>=-WALK_MIN and velocity.x < WALK_MAX):
+				force.x+=WALK_FORCE
+				stop = false
+				stopped = false
+				if (bot_sprite.get_current_animation() != "Run" and !jumping && !falling):
+					bot_sprite.play("Run")
+				if (top_sprite.get_current_animation() != "Run" and !is_attacking() and !jumping && !falling ):
+					top_sprite.play("Run")
+			else:
+				force.x = WALK_FORCE * STOP_COEFF
+
+			#
+
+			
+		
+		
+
+
+
 	# if the player got no movement, he'll slow down with inertia.
 	if (stop):
 		stop(delta)
@@ -152,10 +231,17 @@ func _movement(delta):
 			#char is on floor
 			air_time=0
 			falling = false
+			can_dash = true
+
 			if (not landed):
 				create_dust("Land")
 				sfx.play("step")
 				landed = true
+				
+		
+			#if angle to the "up" vectors is < angle tolerance
+			#char is on floor
+			
 			
 
 		# But we were moving and our motion was interrupted, 
@@ -176,12 +262,12 @@ func _movement(delta):
 	if (velocity.y > 0 and air_time > MAX_AIR):
 		falling = true
 	
-	if (velocity.y < 0 and bot_sprite.get_current_animation() != "Jump"):
+	if (velocity.y < 0 and bot_sprite.get_current_animation() != "Jump" and !isdashing):
 		bot_sprite.play("Jump")
 		if (!attacking):
 			top_sprite.play("Jump")
 
-	if (falling and bot_sprite.get_current_animation() != "Fall"):
+	if (falling and bot_sprite.get_current_animation() != "Fall" and !isdashing):
 		bot_sprite.play("Fall")
 		if (!attacking):
 			top_sprite.play("Fall")
@@ -198,7 +284,11 @@ func _movement(delta):
 		bot_sprite.play("Jump")
 		jumping=true
 		jump_time.start()
-		velocity.y = -JUMP_VEL
+		#if isdashing:
+		#	velocity.y = -JUMP_VEL
+		#	velocity.x = velocity.x * 1.4
+		#else:
+		velocity.y = -JUMP_VEL 
 	
 	# print("C:" + str(can_jump) + " J:" + str(jump))
 #	print(jumping)
@@ -221,7 +311,9 @@ func _movement(delta):
 #		velocity.y = -jump_time.get_time_left()*JUMP_VEL
 
 	# Manage attack
-	if (!attack):
+	if (bot_sprite.get_current_animation() == "Slide"):
+		can_attack = false
+	elif (!attack):
 		can_attack = true
 	elif (can_attack and attack && !attacking):
 		can_attack = false
@@ -249,8 +341,10 @@ func _movement(delta):
 		sees_left = true
 	if (sees_left):
 		set_scale(Vector2(-1,1))
+		direction = -1
 	else:
 		set_scale(Vector2(1,1))
+		direction = 1
 
 	# Dust states
 	if (landed and (jumping or falling)):
@@ -260,7 +354,7 @@ func _movement(delta):
 	# Make sure attack fixes
 	if (attacking and !is_attacking()):
 		attacking = false
-	print("IA:" + str(is_attacking())+" A: "+str(attacking))
+	#print("IA:" + str(is_attacking())+" A: "+str(attacking))
 
 	# End Movement and Fixed Process
 	
@@ -271,7 +365,7 @@ func stop(delta):
 	vx -= STOP_FORCE * delta
 	if (vx<0):
 		vx=0
-		if (bot_sprite.get_current_animation() != "Idle" && bot_sprite.get_current_animation() != "Victory" && !jumping && !falling):
+		if (bot_sprite.get_current_animation() != "Idle" && bot_sprite.get_current_animation() != "Victory" && !walk_down && !jumping && !falling and !isdashing):
 			if (not stopped and not jumping and not falling):
 				create_dust("Brake")
 				stopped = true
@@ -331,7 +425,16 @@ func _on_Hitbox_body_enter( body ):
 			controller.life_down()
 
 func death():
-	dead = true
+	waitingtodie = true
+	bot_sprite.play("hurtfall")
+	if landed:
+		bot_sprite.play("die")
+		top_sprite.play("None")
+		waitingtodie = false
+		dead = true
+func die():
+	
+	
 	var map = controller.current_map
 	var instance = smoke_effects.instance()
 	map.add_child(instance)
@@ -347,3 +450,7 @@ func _on_Jump_timeout():
 	if (jump):
 		velocity.y = -JUMP_VEL
 #	jumping = false
+
+
+
+

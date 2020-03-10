@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="10" version="1.1" version_name="Godot Engine v1.1.r1578.28-July-2015">
-	<ext_resource path="res://images/runner.png" type="Texture"></ext_resource>
-	<ext_resource path="res://sounds/step.smp" type="Sample"></ext_resource>
+<resource_file type="PackedScene" subresource_count="12" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
+	<ext_resource path="res://sounds/step.smp" type="Sample" index="1"></ext_resource>
+	<ext_resource path="res://images/enhpback.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://images/enhp.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://images/runner.png" type="Texture" index="0"></ext_resource>
 	<resource type="GDScript" path="local://7">
-		<string name="script/source"> "&#000a;extends &quot;enemy.gd&quot;&#000a;&#000a;const R = 1&#000a;const L = -1&#000a;&#000a;export var max_hp = 4&#000a;var speed = 2&#000a;var direction&#000a;var detect&#000a;var marker = preload(&quot;res://scenes/marker.gd&quot;)&#000a;&#000a;func _ready():&#000a;&#0009;hp = max_hp&#000a;&#0009;direction = -1 + 2*(randi() % 2)&#000a;&#0009;set_scale(Vector2(direction, 1))&#000a;&#0009;detect = get_node(&quot;Detect&quot;)&#000a;&#000a;func _fixed_process(delta):&#000a;&#0009;var pos = get_pos() + Vector2(speed * direction, 0)&#000a;&#0009;set_pos(pos)&#000a;&#000a;func _on_Detect_body_enter( body ):&#000a;&#0009;if (body extends marker):&#000a;&#0009;&#0009;direction *= -1&#000a;&#0009;&#0009;set_scale(Vector2(direction, 1))&#000a;" </string>
+		<string name="script/source"> "&#000a;extends &quot;enemy.gd&quot;&#000a;&#000a;const R = 1&#000a;const L = -1&#000a;var hpbar&#000a;export var max_hp = 4&#000a;var speed = 2&#000a;var direction&#000a;var detect&#000a;var marker = preload(&quot;res://scenes/marker.gd&quot;)&#000a;&#000a;func _ready():&#000a;&#0009;hp = max_hp&#000a;&#0009;direction = -1 + 2*(randi() % 2)&#000a;&#0009;set_scale(Vector2(direction, 1))&#000a;&#0009;detect = get_node(&quot;Detect&quot;)&#000a;&#0009;hpbar = get_node(&quot;HPbar&quot;)&#000a;&#0009;hpbar.set_max(max_hp)&#000a;&#000a;func _fixed_process(delta):&#000a;&#0009;var pos = get_pos() + Vector2(speed * direction, 0)&#000a;&#0009;set_pos(pos)&#000a;&#0009;hpbar.set_value(hp)&#000a;&#000a;&#000a;func _on_Detect_body_enter( body ):&#000a;&#0009;if (body extends marker):&#000a;&#0009;&#0009;direction *= -1&#000a;&#0009;&#0009;set_scale(Vector2(direction, 1))&#000a;" </string>
 
 	</resource>
 	<resource type="RectangleShape2D" path="local://2">
@@ -19,13 +21,14 @@
 		<string name="tracks/0/type"> "value" </string>
 		<node_path name="tracks/0/path"> "Sprite:frame" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
+		<bool name="tracks/0/imported"> False </bool>
 		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
 			<string> "times" </string>
 			<real_array  len="6"> 				0, 0.05, 0.1, 0.15, 0.2, 0.25 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="6"> 				1, 1, 1, 1, 1, 1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
 			<string> "values" </string>
 			<array  len="6" shared="false">
 				<int> 8 </int>
@@ -39,13 +42,14 @@
 		<string name="tracks/1/type"> "value" </string>
 		<node_path name="tracks/1/path"> "SamplePlayer:play/play" </node_path>
 		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
 		<dictionary name="tracks/1/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
 			<string> "times" </string>
 			<real_array  len="1"> 				0.3 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
 			<string> "values" </string>
 			<array  len="1" shared="false">
 				<string> "step" </string>
@@ -73,8 +77,10 @@
 			<real> -6 </real>
 			<string> "pitch" </string>
 			<real> 1.5 </real>
+			<string> "priority" </string>
+			<int> 0 </int>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://sounds/step.smp">  </resource>
+			<resource  external="1">  </resource>
 		</dictionary>
 
 	</resource>
@@ -83,11 +89,13 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				1, 0, 53, 52, 2, 0 </int_array>
+			<int_array  len="6"> 				1, 0, 77, 76, 2, 0 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
 			<string> "names" </string>
-			<string_array  len="54">
+			<string_array  len="78">
 				<string> "Runner Imp" </string>
-				<string> "KinematicBody2D" </string>
 				<string> "z/z" </string>
 				<string> "input/pickable" </string>
 				<string> "collision/layers" </string>
@@ -96,8 +104,9 @@
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "max_hp" </string>
+				<string> "KinematicBody2D" </string>
 				<string> "Detect" </string>
-				<string> "Area2D" </string>
+				<string> "visibility/visible" </string>
 				<string> "transform/pos" </string>
 				<string> "shapes/0/shape" </string>
 				<string> "shapes/0/transform" </string>
@@ -106,9 +115,11 @@
 				<string> "gravity" </string>
 				<string> "linear_damp" </string>
 				<string> "angular_damp" </string>
+				<string> "Area2D" </string>
 				<string> "CollisionShape2D" </string>
 				<string> "shape" </string>
 				<string> "trigger" </string>
+				<string> "_update_shape_index" </string>
 				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "flip_h" </string>
@@ -125,11 +136,10 @@
 				<string> "blend_times" </string>
 				<string> "autoplay" </string>
 				<string> "Hitbox" </string>
-				<string> "visibility/visible" </string>
+				<string> "editor/display_folded" </string>
 				<string> "Hurtbox" </string>
 				<string> "Shape2d" </string>
 				<string> "SamplePlayer" </string>
-				<string> "SamplePlayer2D" </string>
 				<string> "params/volume_db" </string>
 				<string> "params/pitch_scale" </string>
 				<string> "params/attenuation/min_distance" </string>
@@ -138,15 +148,41 @@
 				<string> "config/polyphony" </string>
 				<string> "config/samples" </string>
 				<string> "config/pitch_random" </string>
+				<string> "SamplePlayer2D" </string>
+				<string> "HPbar" </string>
+				<string> "focus/ignore_mouse" </string>
+				<string> "focus/stop_mouse" </string>
+				<string> "size_flags/horizontal" </string>
+				<string> "size_flags/vertical" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
+				<string> "range/min" </string>
+				<string> "range/max" </string>
+				<string> "range/step" </string>
+				<string> "range/page" </string>
+				<string> "range/value" </string>
+				<string> "range/exp_edit" </string>
+				<string> "range/rounded" </string>
+				<string> "texture/under" </string>
+				<string> "texture/over" </string>
+				<string> "texture/progress" </string>
+				<string> "radial_fill/fill_degrees" </string>
+				<string> "radial_fill/center_offset" </string>
+				<string> "TextureProgress" </string>
 				<string> "_on_Detect_body_enter" </string>
 				<string> "body_enter" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 10 </int>
+			<int> 11 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
 			<string> "nodes" </string>
-			<int_array  len="208"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 1, 4, 0, 5, 0, 6, 2, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 10, 12, 6, 3, 7, 13, 8, 14, 9, 15, 1, 16, 10, 17, 11, 18, 12, 19, 13, 8, 14, 0, 1, 0, 20, 20, -1, 2, 21, 8, 22, 1, 0, 0, 0, 23, 23, -1, 6, 12, 15, 24, 16, 25, 7, 26, 17, 27, 17, 28, 18, 0, 0, 0, 29, 29, -1, 8, 30, 0, 31, 19, 32, 20, 33, 21, 34, 7, 35, 13, 36, 22, 37, 23, 0, 0, 0, 11, 38, -1, 10, 39, 1, 3, 7, 13, 24, 14, 25, 15, 1, 16, 10, 17, 11, 18, 12, 19, 13, 8, 26, 0, 5, 0, 20, 20, -1, 3, 12, 27, 21, 24, 22, 1, 0, 0, 0, 1, 40, -1, 11, 39, 1, 12, 28, 3, 1, 13, 29, 14, 30, 15, 7, 4, 0, 5, 0, 6, 2, 7, 31, 8, 32, 0, 7, 0, 20, 41, -1, 3, 12, 33, 21, 29, 22, 7, 0, 0, 0, 43, 42, -1, 8, 44, 19, 45, 13, 46, 34, 47, 35, 48, 13, 49, 0, 50, 36, 51, 19, 0 </int_array>
+			<int_array  len="265"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 0, 4, 0, 5, 2, 6, 3, 7, 4, 8, 5, 0, 0, 0, 20, 10, -1, 10, 11, 1, 12, 6, 2, 7, 13, 8, 14, 9, 15, 1, 16, 10, 17, 11, 18, 12, 19, 13, 0, 1, 0, 21, 21, -1, 3, 22, 8, 23, 1, 24, 14, 0, 0, 0, 25, 25, -1, 7, 12, 15, 26, 16, 27, 7, 28, 17, 29, 17, 30, 18, 7, 19, 0, 0, 0, 31, 31, -1, 8, 32, 0, 33, 20, 34, 21, 35, 22, 36, 7, 37, 13, 38, 23, 39, 24, 0, 0, 0, 20, 40, -1, 10, 41, 7, 11, 1, 2, 7, 13, 25, 14, 26, 15, 1, 16, 10, 17, 11, 18, 12, 19, 13, 0, 5, 0, 21, 21, -1, 4, 12, 27, 22, 25, 23, 1, 24, 14, 0, 0, 0, 9, 42, -1, 11, 41, 7, 11, 1, 12, 28, 2, 1, 13, 29, 14, 30, 15, 7, 3, 0, 4, 0, 5, 2, 6, 31, 0, 7, 0, 21, 43, -1, 4, 12, 32, 22, 29, 23, 7, 24, 14, 0, 0, 0, 53, 44, -1, 9, 11, 1, 45, 20, 46, 13, 47, 33, 48, 34, 49, 13, 50, 0, 51, 35, 52, 20, 0, 0, 0, 75, 54, -1, 20, 55, 1, 56, 7, 57, 5, 58, 5, 59, 36, 60, 37, 61, 38, 62, 39, 63, 20, 64, 40, 65, 13, 66, 20, 67, 40, 68, 1, 69, 1, 70, 41, 71, 42, 72, 43, 73, 44, 74, 45, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="37" shared="false">
+			<array  len="46" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<real> 0.08 </real>
@@ -154,135 +190,6 @@
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
-					<string> "__editor_plugin_states__" </string>
-					<dictionary  shared="false">
-						<string> "2D" </string>
-						<dictionary  shared="false">
-							<string> "ofs" </string>
-							<vector2> -76.5716, -38.8524 </vector2>
-							<string> "snap_grid" </string>
-							<bool> True </bool>
-							<string> "snap_offset" </string>
-							<vector2> 0, 0 </vector2>
-							<string> "snap_pixel" </string>
-							<bool> False </bool>
-							<string> "snap_relative" </string>
-							<bool> False </bool>
-							<string> "snap_rotation" </string>
-							<bool> False </bool>
-							<string> "snap_rotation_offset" </string>
-							<real> 0 </real>
-							<string> "snap_rotation_step" </string>
-							<real> 0.261799 </real>
-							<string> "snap_show_grid" </string>
-							<bool> False </bool>
-							<string> "snap_step" </string>
-							<vector2> 10, 10 </vector2>
-							<string> "zoom" </string>
-							<real> 8.62201 </real>
-						</dictionary>
-						<string> "3D" </string>
-						<dictionary  shared="false">
-							<string> "ambient_light_color" </string>
-							<color> 0.15, 0.15, 0.15, 1 </color>
-							<string> "default_light" </string>
-							<bool> True </bool>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "show_grid" </string>
-							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
-							<string> "viewports" </string>
-							<array  len="4" shared="false">
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> True </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "znear" </string>
-							<real> 0.1 </real>
-						</dictionary>
-					</dictionary>
-					<string> "__editor_run_settings__" </string>
-					<dictionary  shared="false">
-						<string> "custom_args" </string>
-						<string> "-l $scene" </string>
-						<string> "run_mode" </string>
-						<int> 0 </int>
-					</dictionary>
-					<string> "_edit_group_" </string>
-					<bool> True </bool>
 				</dictionary>
 				<int> 2 </int>
 				<vector2> 10, -7 </vector2>
@@ -293,14 +200,15 @@
 				<real> 98 </real>
 				<real> 0.1 </real>
 				<real> 1 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
+				<int> -1 </int>
 				<vector2> 0, -8 </vector2>
-				<resource  resource_type="Texture" path="res://images/runner.png">  </resource>
+				<resource  external="0">  </resource>
 				<int> 8 </int>
 				<int> 10 </int>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
 				<real> 0 </real>
 				<node_path> ".." </node_path>
 				<resource  resource_type="Animation" path="local://4">  </resource>
@@ -309,26 +217,27 @@
 				<string> "Run" </string>
 				<resource  resource_type="Shape2D" path="local://8">  </resource>
 				<matrix32> 1, -0, 0, 1, 1, -8 </matrix32>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
 				<vector2> 1, -8 </vector2>
 				<vector2> -1, -8 </vector2>
 				<resource  resource_type="Shape2D" path="local://5">  </resource>
 				<matrix32> 1, -0, 0, 1, 2, 0 </matrix32>
 				<resource  resource_type="Script" path="local://6">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
 				<vector2> 2, 0 </vector2>
 				<real> 160 </real>
 				<real> 320 </real>
 				<resource  resource_type="SampleLibrary" path="local://9">  </resource>
+				<real> -24 </real>
+				<real> -28 </real>
+				<real> 24 </real>
+				<real> -13 </real>
+				<real> 4 </real>
+				<resource  external="2">  </resource>
+				<resource name=""></resource>				<resource  external="3">  </resource>
+				<real> 360 </real>
+				<vector2> 0, 0 </vector2>
 			</array>
 			<string> "version" </string>
-			<int> 1 </int>
+			<int> 2 </int>
 		</dictionary>
 
 	</main_resource>
