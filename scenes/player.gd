@@ -108,6 +108,7 @@ func _fixed_process(delta):
 		attack = Input.is_action_pressed("attack")
 		dash_but = Input.is_action_pressed("attack2")
 	else:
+		top_sprite.set_current_animation("transmission")
 		walk_left = false
 		walk_right = false
 		walk_up = false

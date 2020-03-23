@@ -179,8 +179,9 @@ func change_face(text):
 	face_anim.queue("Neutral")
 	
 func begin_cutscene():
-#	var player = get_player()
+	#var playyy = get_player()
 	cutscene = true
+	
 #	player.falling = false
 #	player.jumping = false
 #	player.attacking = false
@@ -189,6 +190,7 @@ func begin_cutscene():
 
 func end_cutscene():
 	cutscene = false
+#	player.top_sprite.play("donetransmission")
 
 func show_bosshp(value):
 	bosshp.show()
