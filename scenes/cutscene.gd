@@ -20,10 +20,7 @@ func _on_Area2D_body_enter( body ):
 			show()
 			if (cutscene):
 				controller.begin_cutscene()
-				
-				
-				
-				
+				controller.cutsceneis = check
 			if (check != null):
 				test[check] = true
 			if (do_text):

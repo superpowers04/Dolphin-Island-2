@@ -20,6 +20,7 @@ func _ready():
 	c = get_node("/root/Controller")
 	load_timer = get_node("LoadTimer")
 	change_map("res://scenes/title_screen.xscn", 0)
+	
 
 
 
@@ -31,7 +32,10 @@ func _on_DeathTimer_timeout():
 	c.death = false
 	change_map(c.current_map_name, c.checkpoint)
 
-	
+
+
+
+
 func change_map(map, cp):
 #	print([map,cp, load_timer, load_state])
 	if (load_state == 0):
@@ -74,6 +78,9 @@ func change_map(map, cp):
 			c.ui.show()
 		c.fader.play("FadeIn")
 		load_state = 0
+
+
+
 
 func _on_LoadTimer_timeout():
 	change_map(tmap, tcp)

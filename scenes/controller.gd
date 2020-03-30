@@ -2,6 +2,7 @@ extends Node
 
 var root
 # Lifeforce Management
+
 var lf_active = true
 var full_lifeforce = true
 var lifeforce_timer
@@ -37,6 +38,8 @@ var snd_manager
 # Input variables
 var cutscene = false
 var press_full = false
+var cutsceneis
+
 
 func _ready():
 #	OS.set_iterations_per_second(60)
@@ -190,6 +193,7 @@ func begin_cutscene():
 
 func end_cutscene():
 	cutscene = false
+	cutsceneis = ""
 #	player.top_sprite.play("donetransmission")
 
 func show_bosshp(value):

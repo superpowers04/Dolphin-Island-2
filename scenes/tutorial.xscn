@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="41" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
-	<ext_resource path="res://scenes/worm.xscn" type="PackedScene" index="17"></ext_resource>
-	<ext_resource path="res://sounds/mage_shoot.smp" type="Sample" index="13"></ext_resource>
-	<ext_resource path="res://scenes/marker.xscn" type="PackedScene" index="16"></ext_resource>
-	<ext_resource path="res://scenes/stone.xml" type="TileSet" index="10"></ext_resource>
-	<ext_resource path="res://images/snowbg3.png" type="Texture" index="19"></ext_resource>
+<resource_file type="PackedScene" subresource_count="43" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
 	<ext_resource path="res://images/hubbg2.png" type="Texture" index="23"></ext_resource>
-	<ext_resource path="res://images/snowbg2.png" type="Texture" index="20"></ext_resource>
-	<ext_resource path="res://images/hubbg3.png" type="Texture" index="22"></ext_resource>
 	<ext_resource path="res://scenes/outer.xml" type="TileSet" index="9"></ext_resource>
-	<ext_resource path="res://images/snowbg1.png" type="Texture" index="21"></ext_resource>
-	<ext_resource path="res://scenes/checkpoint.scn" type="PackedScene" index="11"></ext_resource>
-	<ext_resource path="res://images/hubbg1.png" type="Texture" index="24"></ext_resource>
-	<ext_resource path="res://scenes/overlay.xml" type="TileSet" index="7"></ext_resource>
 	<ext_resource path="res://images/tileset.png" type="Texture" index="18"></ext_resource>
+	<ext_resource path="res://images/hubbg3.png" type="Texture" index="22"></ext_resource>
+	<ext_resource path="res://images/snowbg2.png" type="Texture" index="20"></ext_resource>
 	<ext_resource path="res://images/mobsheet.png" type="Texture" index="12"></ext_resource>
-	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="3"></ext_resource>
-	<ext_resource path="res://scenes/teleport.xscn" type="PackedScene" index="15"></ext_resource>
+	<ext_resource path="res://scenes/worm.xscn" type="PackedScene" index="17"></ext_resource>
 	<ext_resource path="res://scenes/l1_bossroom.scn" type="PackedScene" index="5"></ext_resource>
-	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="14"></ext_resource>
-	<ext_resource path="res://scenes/l1_arenasplit.scn" type="PackedScene" index="4"></ext_resource>
-	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scenes/stone.xml" type="TileSet" index="10"></ext_resource>
+	<ext_resource path="res://images/snowbg1.png" type="Texture" index="21"></ext_resource>
+	<ext_resource path="res://images/snowbg3.png" type="Texture" index="19"></ext_resource>
 	<ext_resource path="res://scenes/player.tscn" type="PackedScene" index="8"></ext_resource>
+	<ext_resource path="res://images/hubbg1.png" type="Texture" index="24"></ext_resource>
+	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="14"></ext_resource>
+	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://scenes/l1_classmates.xscn" type="PackedScene" index="6"></ext_resource>
+	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://scenes/overlay.xml" type="TileSet" index="7"></ext_resource>
+	<ext_resource path="res://sounds/mage_shoot.smp" type="Sample" index="13"></ext_resource>
+	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://scenes/marker.xscn" type="PackedScene" index="16"></ext_resource>
+	<ext_resource path="res://scenes/l1_arenasplit.scn" type="PackedScene" index="4"></ext_resource>
+	<ext_resource path="res://scenes/teleport.xscn" type="PackedScene" index="15"></ext_resource>
+	<ext_resource path="res://scenes/checkpoint.scn" type="PackedScene" index="11"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 97, 4 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://2">
+		<string name="script/source"> "&#000a;extends &quot;cutscene.gd&quot;&#000a;&#000a;# member variables here, example:&#000a;# var a=2&#000a;# var b=&quot;textvar&quot;&#000a;&#000a;func _ready():&#000a;&#0009;text = [&quot;[Sora]: You&apos;re inside. \nTry to get used to this digital form.&quot;,&#000a;&#0009;&#0009;&#0009;&quot;[Aisha]: Sweet outfit. \nI even got a badass sword!&quot;, &#000a;&#0009;&#0009;&#0009;&quot;[Sora]: Haha. Don&apos;t get so excited. \nGo take a look around.&quot;]&#000a;&#0009;check = &quot;TutorialIntro&quot;&#000a;&#0009;pass&#000a;&#000a;&#000a;" </string>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://16">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 7, 37 </vector2>
 
 	</resource>
-	<resource type="GDScript" path="local://2">
+	<resource type="GDScript" path="local://17">
 		<string name="script/source"> "&#000a;extends &quot;cutscene.gd&quot;&#000a;&#000a;# member variables here, example:&#000a;# var a=2&#000a;# var b=&quot;textvar&quot;&#000a;&#000a;func _ready():&#000a;&#0009;text = [&quot;[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?&quot;, &#000a;&#0009;&#0009;&#0009;&quot;[Sora]: Dash across.\n You can dash in any direction aswell&quot;,&#000a;&#0009;&#0009;&#0009;&quot;[Aisha]: Oh, Thanks!&quot;]&#000a;&#0009;check = &quot;DashIntro&quot;&#000a;&#0009;pass&#000a;&#000a;&#000a;" </string>
 
 	</resource>
@@ -530,9 +539,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="1167"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 0, 2, -1, 2, 3, 1, 4, 2, 0, 1, 0, 2147483647, 5, 3, 1, 4, 4, 0, 1, 0, 2147483647, 6, 5, 2, 3, 1, 4, 6, 0, 1, 0, 2147483647, 7, 7, 1, 4, 8, 0, 1, 0, 2147483647, 8, 9, 1, 4, 10, 0, 1, 0, 2147483647, 9, 11, 1, 4, 12, 0, 1, 0, 2147483647, 10, 13, 1, 4, 14, 0, 1, 0, 2147483647, 11, 15, 1, 4, 16, 0, 0, 0, 29, 12, -1, 18, 4, 17, 13, 18, 14, 19, 15, 20, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 29, 1, 30, 0, 0, 0, 2147483647, 30, 31, 0, 0, 0, 0, 29, 29, -1, 16, 14, 19, 15, 32, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 33, 1, 34, 0, 11, 0, 31, 31, -1, 12, 32, 35, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 43, 0, 11, 0, 31, 43, -1, 12, 32, 44, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 45, 0, 11, 0, 31, 44, -1, 14, 4, 46, 45, 47, 32, 48, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 49, 0, 0, 0, 29, 46, -1, 16, 14, 19, 15, 50, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 51, 1, 52, 0, 0, 0, 0, 47, -1, 1, 1, 53, 0, 16, 0, 2147483647, 48, 54, 2, 49, 25, 4, 55, 0, 16, 0, 2147483647, 50, 54, 2, 4, 56, 51, 28, 0, 16, 0, 2147483647, 52, 54, 2, 4, 57, 51, 24, 0, 16, 0, 2147483647, 53, 54, 2, 4, 58, 51, 18, 0, 0, 0, 0, 54, -1, 1, 1, 59, 0, 21, 0, 65, 55, -1, 10, 4, 60, 56, 1, 57, 61, 58, 62, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 66, 0, 22, 0, 66, 66, -1, 4, 4, 67, 67, 61, 68, 25, 69, 19, 0, 21, 0, 65, 70, -1, 10, 4, 68, 56, 1, 57, 61, 58, 69, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 66, 0, 24, 0, 66, 66, -1, 4, 4, 70, 67, 61, 68, 25, 69, 19, 0, 21, 0, 65, 71, -1, 11, 3, 1, 4, 71, 56, 1, 57, 72, 58, 73, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 74, 0, 26, 0, 66, 66, -1, 4, 4, 75, 67, 72, 68, 25, 69, 76, 0, 26, 0, 72, 72, -1, 5, 4, 77, 73, 78, 74, 79, 75, 79, 76, 80, 0, 26, 0, 77, 77, -1, 10, 78, 28, 79, 27, 80, 81, 81, 82, 82, 83, 83, 84, 84, 1, 85, 26, 86, 85, 87, 86, 0, 26, 0, 88, 88, -1, 1, 4, 87, 0, 26, 0, 89, 89, -1, 4, 90, 28, 91, 88, 92, 1, 93, 25, 0, 26, 0, 94, 94, -1, 14, 95, 28, 96, 89, 97, 27, 98, 26, 99, 27, 100, 27, 101, 27, 102, 19, 103, 27, 104, 27, 105, 27, 106, 24, 107, 27, 108, 27, 0, 21, 0, 2147483647, 109, 90, 1, 4, 91, 0, 21, 0, 2147483647, 110, 92, 2, 4, 93, 111, 94, 0, 0, 0, 0, 112, -1, 1, 1, 95, 0, 35, 0, 2147483647, 113, 96, 1, 4, 97, 0, 35, 0, 2147483647, 114, 96, 1, 4, 98, 0, 35, 0, 2147483647, 115, 99, 1, 4, 100, 0, 35, 0, 2147483647, 116, 99, 1, 4, 101, 0, 0, 0, 0, 117, -1, 0, 0, 0, 0, 0, 118, -1, 1, 1, 102, 0, 41, 0, 72, 72, -1, 5, 4, 103, 73, 104, 74, 79, 75, 79, 76, 105, 0, 41, 0, 72, 119, -1, 5, 4, 106, 73, 104, 74, 79, 75, 79, 76, 107, 0, 41, 0, 72, 120, -1, 5, 4, 108, 73, 104, 74, 79, 75, 79, 76, 109, 0, 41, 0, 72, 121, -1, 5, 4, 110, 73, 104, 74, 79, 75, 79, 76, 111, 0, 41, 0, 72, 122, -1, 5, 4, 112, 73, 104, 74, 79, 75, 79, 76, 113, 0, 0, 0, 0, 123, -1, 2, 4, 114, 45, 115, 0, 47, 0, 77, 124, -1, 9, 78, 28, 79, 27, 80, 81, 125, 116, 126, 117, 84, 1, 85, 26, 86, 85, 87, 118, 0, 48, 0, 65, 127, -1, 14, 4, 114, 45, 119, 56, 1, 57, 120, 58, 121, 59, 25, 128, 122, 129, 123, 130, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 124, 0, 49, 0, 66, 66, -1, 4, 4, 125, 67, 120, 68, 25, 69, 19, 0, 49, 0, 66, 131, -1, 4, 4, 126, 67, 122, 68, 25, 69, 28, 0, 48, 0, 65, 132, -1, 14, 4, 127, 45, 119, 56, 1, 57, 120, 58, 128, 59, 25, 128, 129, 129, 130, 130, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 131, 0, 52, 0, 66, 66, -1, 4, 4, 132, 67, 120, 68, 25, 69, 19, 0, 52, 0, 66, 131, -1, 4, 4, 133, 67, 129, 68, 25, 69, 28, 0, 48, 0, 0, 133, -1, 2, 3, 1, 4, 134, 0, 55, 0, 134, 134, -1, 10, 135, 76, 36, 39, 136, 27, 137, 41, 138, 39, 139, 39, 140, 41, 141, 39, 142, 39, 143, 1, 0, 56, 0, 148, 144, -1, 3, 145, 135, 146, 39, 147, 136, 0, 57, 0, 72, 72, -1, 3, 4, 137, 73, 138, 149, 139, 0, 56, 0, 148, 150, -1, 3, 145, 140, 146, 39, 147, 136, 0, 59, 0, 72, 72, -1, 2, 4, 137, 73, 141, 0, 56, 0, 148, 151, -1, 3, 145, 142, 146, 39, 147, 136, 0, 61, 0, 72, 72, -1, 2, 4, 137, 73, 143, 0, 48, 0, 0, 152, -1, 1, 4, 144, 0, 63, 0, 134, 148, -1, 10, 135, 76, 36, 39, 136, 27, 137, 41, 138, 39, 139, 39, 140, 41, 141, 39, 142, 39, 143, 1, 0, 64, 0, 148, 144, -1, 4, 145, 145, 146, 39, 147, 136, 1, 146, 0, 65, 0, 72, 72, -1, 3, 4, 147, 73, 148, 1, 149, 0, 64, 0, 148, 150, -1, 4, 145, 140, 146, 39, 147, 136, 1, 150, 0, 67, 0, 72, 72, -1, 3, 4, 147, 73, 151, 1, 152, 0, 64, 0, 148, 151, -1, 4, 145, 153, 146, 39, 147, 136, 1, 154, 0, 69, 0, 72, 72, -1, 3, 4, 155, 73, 156, 1, 157, 0 </int_array>
+			<int_array  len="1167"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 0, 2, -1, 2, 3, 1, 4, 2, 0, 1, 0, 2147483647, 5, 3, 1, 4, 4, 0, 1, 0, 2147483647, 6, 5, 2, 3, 1, 4, 6, 0, 1, 0, 2147483647, 7, 7, 1, 4, 8, 0, 1, 0, 2147483647, 8, 9, 1, 4, 10, 0, 1, 0, 2147483647, 9, 11, 1, 4, 12, 0, 1, 0, 2147483647, 10, 13, 1, 4, 14, 0, 1, 0, 2147483647, 11, 15, 1, 4, 16, 0, 0, 0, 29, 12, -1, 18, 4, 17, 13, 18, 14, 19, 15, 20, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 29, 1, 30, 0, 0, 0, 2147483647, 30, 31, 0, 0, 0, 0, 29, 29, -1, 16, 14, 19, 15, 32, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 33, 1, 34, 0, 11, 0, 31, 31, -1, 12, 32, 35, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 43, 0, 11, 0, 31, 43, -1, 12, 32, 44, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 45, 0, 11, 0, 31, 44, -1, 14, 4, 46, 45, 47, 32, 48, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 49, 0, 0, 0, 29, 46, -1, 16, 14, 19, 15, 50, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 51, 1, 52, 0, 0, 0, 0, 47, -1, 1, 1, 53, 0, 16, 0, 2147483647, 48, 54, 2, 49, 25, 4, 55, 0, 16, 0, 2147483647, 50, 54, 2, 4, 56, 51, 28, 0, 16, 0, 2147483647, 52, 54, 2, 4, 57, 51, 24, 0, 16, 0, 2147483647, 53, 54, 2, 4, 58, 51, 18, 0, 0, 0, 0, 54, -1, 1, 1, 59, 0, 21, 0, 65, 55, -1, 10, 4, 60, 56, 1, 57, 61, 58, 62, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 66, 0, 22, 0, 66, 66, -1, 4, 4, 67, 67, 61, 68, 25, 69, 19, 0, 21, 0, 65, 70, -1, 10, 4, 68, 56, 1, 57, 69, 58, 70, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 71, 0, 24, 0, 66, 66, -1, 4, 4, 72, 67, 69, 68, 25, 69, 19, 0, 21, 0, 65, 71, -1, 11, 3, 1, 4, 73, 56, 1, 57, 74, 58, 75, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 76, 0, 26, 0, 66, 66, -1, 4, 4, 77, 67, 74, 68, 25, 69, 78, 0, 26, 0, 72, 72, -1, 5, 4, 79, 73, 80, 74, 81, 75, 81, 76, 82, 0, 26, 0, 77, 77, -1, 10, 78, 28, 79, 27, 80, 83, 81, 84, 82, 85, 83, 86, 84, 1, 85, 26, 86, 87, 87, 88, 0, 26, 0, 88, 88, -1, 1, 4, 89, 0, 26, 0, 89, 89, -1, 4, 90, 28, 91, 90, 92, 1, 93, 25, 0, 26, 0, 94, 94, -1, 14, 95, 28, 96, 91, 97, 27, 98, 26, 99, 27, 100, 27, 101, 27, 102, 19, 103, 27, 104, 27, 105, 27, 106, 24, 107, 27, 108, 27, 0, 21, 0, 2147483647, 109, 92, 1, 4, 93, 0, 21, 0, 2147483647, 110, 94, 2, 4, 95, 111, 96, 0, 0, 0, 0, 112, -1, 1, 1, 97, 0, 35, 0, 2147483647, 113, 98, 1, 4, 99, 0, 35, 0, 2147483647, 114, 98, 1, 4, 100, 0, 35, 0, 2147483647, 115, 101, 1, 4, 102, 0, 35, 0, 2147483647, 116, 101, 1, 4, 103, 0, 0, 0, 0, 117, -1, 0, 0, 0, 0, 0, 118, -1, 1, 1, 104, 0, 41, 0, 72, 72, -1, 5, 4, 105, 73, 106, 74, 81, 75, 81, 76, 107, 0, 41, 0, 72, 119, -1, 5, 4, 108, 73, 106, 74, 81, 75, 81, 76, 109, 0, 41, 0, 72, 120, -1, 5, 4, 110, 73, 106, 74, 81, 75, 81, 76, 111, 0, 41, 0, 72, 121, -1, 5, 4, 112, 73, 106, 74, 81, 75, 81, 76, 113, 0, 41, 0, 72, 122, -1, 5, 4, 114, 73, 106, 74, 81, 75, 81, 76, 115, 0, 0, 0, 0, 123, -1, 2, 4, 116, 45, 117, 0, 47, 0, 77, 124, -1, 9, 78, 28, 79, 27, 80, 83, 125, 118, 126, 119, 84, 1, 85, 26, 86, 87, 87, 120, 0, 48, 0, 65, 127, -1, 14, 4, 116, 45, 121, 56, 1, 57, 122, 58, 123, 59, 25, 128, 124, 129, 125, 130, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 126, 0, 49, 0, 66, 66, -1, 4, 4, 127, 67, 122, 68, 25, 69, 19, 0, 49, 0, 66, 131, -1, 4, 4, 128, 67, 124, 68, 25, 69, 28, 0, 48, 0, 65, 132, -1, 14, 4, 129, 45, 121, 56, 1, 57, 122, 58, 130, 59, 25, 128, 131, 129, 132, 130, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 133, 0, 52, 0, 66, 66, -1, 4, 4, 134, 67, 122, 68, 25, 69, 19, 0, 52, 0, 66, 131, -1, 4, 4, 135, 67, 131, 68, 25, 69, 28, 0, 48, 0, 0, 133, -1, 2, 3, 1, 4, 136, 0, 55, 0, 134, 134, -1, 10, 135, 78, 36, 39, 136, 27, 137, 41, 138, 39, 139, 39, 140, 41, 141, 39, 142, 39, 143, 1, 0, 56, 0, 148, 144, -1, 3, 145, 137, 146, 39, 147, 138, 0, 57, 0, 72, 72, -1, 3, 4, 139, 73, 140, 149, 141, 0, 56, 0, 148, 150, -1, 3, 145, 142, 146, 39, 147, 138, 0, 59, 0, 72, 72, -1, 2, 4, 139, 73, 143, 0, 56, 0, 148, 151, -1, 3, 145, 144, 146, 39, 147, 138, 0, 61, 0, 72, 72, -1, 2, 4, 139, 73, 145, 0, 48, 0, 0, 152, -1, 1, 4, 146, 0, 63, 0, 134, 148, -1, 10, 135, 78, 36, 39, 136, 27, 137, 41, 138, 39, 139, 39, 140, 41, 141, 39, 142, 39, 143, 1, 0, 64, 0, 148, 144, -1, 4, 145, 147, 146, 39, 147, 138, 1, 148, 0, 65, 0, 72, 72, -1, 3, 4, 149, 73, 150, 1, 151, 0, 64, 0, 148, 150, -1, 4, 145, 142, 146, 39, 147, 138, 1, 152, 0, 67, 0, 72, 72, -1, 3, 4, 149, 73, 153, 1, 154, 0, 64, 0, 148, 151, -1, 4, 145, 155, 146, 39, 147, 138, 1, 156, 0, 69, 0, 72, 72, -1, 3, 4, 157, 73, 158, 1, 159, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="158" shared="false">
+			<array  len="160" shared="false">
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -621,14 +630,16 @@
 				</dictionary>
 				<vector2> 66, 288 </vector2>
 				<resource  resource_type="Shape2D" path="local://1">  </resource>
-				<matrix32> 1, -0, 0, 1, 29, 22 </matrix32>
+				<matrix32> 1, -0, 0, 1, 29, 21 </matrix32>
 				<vector2> 0, 1 </vector2>
 				<real> 98 </real>
 				<real> 0.1 </real>
 				<resource  resource_type="Script" path="local://2">  </resource>
-				<vector2> 29, 22 </vector2>
+				<vector2> 29, 21 </vector2>
 				<vector2> 1070, 355 </vector2>
+				<resource  resource_type="Shape2D" path="local://16">  </resource>
 				<matrix32> 1, -0, 0, 1, -3, -7 </matrix32>
+				<resource  resource_type="Script" path="local://17">  </resource>
 				<vector2> -3, -7 </vector2>
 				<vector2> 608, 272 </vector2>
 				<resource  resource_type="Shape2D" path="local://3">  </resource>

@@ -73,7 +73,8 @@ var dash_but
 var Effects2
 var topbodspr
 var botbodspr
-
+var cutsceneis = ""
+var noidle = false
 
 func _ready():
 	jump_time = get_node("Jump")
@@ -96,7 +97,8 @@ func _ready():
 
 func _fixed_process(delta):
 	cutscene = controller.cutscene
-	
+	cutsceneis = controller.cutsceneis
+
 	if (bot_sprite.get_current_animation() != "Victory" and effects.get_current_animation() != "Invulnerable"):
 		effects.play("UpNone")
 	if(not cutscene):
@@ -107,8 +109,14 @@ func _fixed_process(delta):
 		jump = Input.is_action_pressed("jump")
 		attack = Input.is_action_pressed("attack")
 		dash_but = Input.is_action_pressed("attack2")
+		noidle = false
 	else:
-		top_sprite.set_current_animation("transmission")
+		if top_sprite.get_current_animation() != "transmission" and bot_sprite.get_current_animation() == "Idle" and cutsceneis != "":
+			if cutsceneis == "TutorialIntro" or cutsceneis == "DashIntro":
+				noidle = true
+				top_sprite.set_current_animation("transmission")
+				print(cutsceneis)
+				need_synchro = true
 		walk_left = false
 		walk_right = false
 		walk_up = false
@@ -122,6 +130,13 @@ func _fixed_process(delta):
 		controller.life_down()
 	if (not dead):
 		_movement(delta)
+		if Input.is_action_pressed("ui_page_up") and controller.checkpoint != 4:
+			controller.checkpoint = controller.checkpoint + 1
+			controller.life_down()
+			controller.life_down()
+			controller.life_down()
+			controller.life_down()
+			print("Going to ", controller.checkpoint)
 		if waitingtodie:
 			death()
 
@@ -380,7 +395,7 @@ func stop(delta):
 				create_dust("Brake")
 				stopped = true
 			bot_sprite.play("Idle")
-			if (!is_attacking()):
+			if (!is_attacking() and !noidle):
 				top_sprite.play("Idle")
 	velocity.x=vx*vsign
 

@@ -346,18 +346,18 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=13]
 
 resource/name = "transmission"
-length = 1.0
-loop = false
+length = 0.5
+loop = true
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("TopBody:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 1 ),
-"update": 1,
-"values": [ 93 ]
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 96, 101 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".")
@@ -1116,7 +1116,6 @@ z/z = 2
 texture = ExtResource( 2 )
 vframes = 22
 hframes = 8
-frame = 93
 __meta__ = {
 "_edit_lock_": true
 }
