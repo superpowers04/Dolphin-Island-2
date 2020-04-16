@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="43" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
+	<ext_resource path="res://images/hubbg2.png" type="Texture" index="23"></ext_resource>
+	<ext_resource path="res://scenes/outer.xml" type="TileSet" index="9"></ext_resource>
+	<ext_resource path="res://images/tileset.png" type="Texture" index="18"></ext_resource>
+	<ext_resource path="res://images/hubbg3.png" type="Texture" index="22"></ext_resource>
+	<ext_resource path="res://images/snowbg2.png" type="Texture" index="20"></ext_resource>
+	<ext_resource path="res://images/mobsheet.png" type="Texture" index="12"></ext_resource>
+	<ext_resource path="res://scenes/worm.xscn" type="PackedScene" index="17"></ext_resource>
+	<ext_resource path="res://scenes/l1_bossroom.scn" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://scenes/stone.xml" type="TileSet" index="10"></ext_resource>
+	<ext_resource path="res://images/snowbg1.png" type="Texture" index="21"></ext_resource>
+	<ext_resource path="res://images/snowbg3.png" type="Texture" index="19"></ext_resource>
+	<ext_resource path="res://scenes/player.tscn" type="PackedScene" index="8"></ext_resource>
+	<ext_resource path="res://images/hubbg1.png" type="Texture" index="24"></ext_resource>
+	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="14"></ext_resource>
+	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="1"></ext_resource>
+	<ext_resource path="res://scenes/l1_classmates.xscn" type="PackedScene" index="6"></ext_resource>
+	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://scenes/overlay.xml" type="TileSet" index="7"></ext_resource>
+	<ext_resource path="res://sounds/mage_shoot.smp" type="Sample" index="13"></ext_resource>
+	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://scenes/marker.xscn" type="PackedScene" index="16"></ext_resource>
+	<ext_resource path="res://scenes/l1_arenasplit.scn" type="PackedScene" index="4"></ext_resource>
+	<ext_resource path="res://scenes/teleport.xscn" type="PackedScene" index="15"></ext_resource>
+	<ext_resource path="res://scenes/checkpoint.scn" type="PackedScene" index="11"></ext_resource>
+	<resource type="RectangleShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 97, 4 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://2">
+		<string name="script/source"> "&#000a;extends &quot;cutscene.gd&quot;&#000a;&#000a;# member variables here, example:&#000a;# var a=2&#000a;# var b=&quot;textvar&quot;&#000a;&#000a;func _ready():&#000a;&#0009;text = [&quot;[Sora]: You&apos;re inside. \nTry to get used to this digital form.&quot;,&#000a;&#0009;&#0009;&#0009;&quot;[Aisha]: Sweet outfit. \nI even got a badass sword!&quot;, &#000a;&#0009;&#0009;&#0009;&quot;[Sora]: Haha. Don&apos;t get so excited. \nGo take a look around.&quot;]&#000a;&#0009;check = &quot;TutorialIntro&quot;&#000a;&#0009;pass&#000a;&#000a;&#000a;" </string>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://16">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 7, 37 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://17">
+		<string name="script/source"> "&#000a;extends &quot;cutscene.gd&quot;&#000a;&#000a;# member variables here, example:&#000a;# var a=2&#000a;# var b=&quot;textvar&quot;&#000a;&#000a;func _ready():&#000a;&#0009;text = [&quot;[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?&quot;, &#000a;&#0009;&#0009;&#0009;&quot;[Sora]: Dash across.\n You can dash in any direction aswell&quot;,&#000a;&#0009;&#0009;&#0009;&quot;[Aisha]: Oh, Thanks!&quot;]&#000a;&#0009;check = &quot;DashIntro&quot;&#000a;&#0009;pass&#000a;&#000a;&#000a;" </string>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://3">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 2, 128 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://4">
+		<string name="script/source"> "&#000a;extends &quot;cutscene.gd&quot;&#000a;&#000a;var bullet = preload(&quot;res://scenes/bullet.xscn&quot;)&#000a;&#000a;func _ready():&#000a;&#0009;if (controller.checkpoint == 1):&#000a;&#0009;&#0009;hide()&#000a;&#0009;else:&#000a;&#0009;&#0009;show()&#000a;&#0009;text = [&quot;[Sora]: That was close, I was able to set \n up a shield for you before you went in.&quot;,&#000a;&#0009;&#0009;&#0009;&quot;[Sora]: It&apos;ll only withstand a single attack, \nbut it&apos;ll regenerate over time.&quot;, &#000a;&#0009;&#0009;&#0009;&quot;[Sora]: Please remember this!&quot;]&#000a;&#0009;check = &quot;TutorialLifeforce&quot;&#000a;&#0009;pass&#000a;&#000a;func _on_Area2D_body_enter( body ):&#000a;&#0009;if (body extends player_class):&#000a;&#0009;&#0009;show()&#000a;&#0009;&#0009;var test = get_node(&quot;/root/Progress&quot;).checks&#000a;&#0009;&#0009;if (check == null or (check != null and not test[check])):&#000a;&#0009;&#0009;&#0009;if (cutscene):&#000a;&#0009;&#0009;&#0009;&#0009;controller.begin_cutscene()&#000a;&#0009;&#0009;&#0009;if (check != null):&#000a;&#0009;&#0009;&#0009;&#0009;test[check] = true&#000a;&#0009;&#0009;&#0009;controller.cam_target = self&#000a;&#0009;&#0009;&#0009;get_node(&quot;Timer&quot;).start()&#000a;&#0009;&#0009;&#0009;set_fixed_process(true)&#000a;&#000a;func _fixed_process(delta):&#000a;&#0009;if (!controller.cutscene):&#000a;&#0009;&#0009;camera()&#000a;&#0009;&#0009;set_fixed_process(false)&#000a;&#000a;func shoot():&#000a;&#0009;get_node(&quot;Position2D&quot;).add_child(bullet.instance())&#000a;&#000a;func text():&#000a;&#0009;get_node(&quot;AnimationPlayer&quot;)&#000a;&#0009;controller.show_text(text)&#000a;&#000a;func camera():&#000a;&#0009;get_node(&quot;AnimationPlayer&quot;).play(&quot;Teleport&quot;)&#000a;&#0009;controller.cam_target = controller.player&#000a;&#000a;func _on_Timer_timeout():&#000a;&#0009;var anim = get_node(&quot;AnimationPlayer&quot;)&#000a;&#0009;anim.play(&quot;Shoot&quot;)&#000a;&#0009;anim.queue(&quot;Idle&quot;)" </string>
+
+	</resource>
+	<resource type="Animation" path="local://5">
+		<string name="resource/name"> "Idle" </string>
+		<real name="length"> 0.8 </real>
+		<bool name="loop"> True </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "Sprite:frame" </node_path>
+		<int name="tracks/0/interp"> 2 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="8"> 				0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="8"> 				1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="8" shared="false">
+				<int> 24 </int>
+				<int> 25 </int>
+				<int> 26 </int>
+				<int> 27 </int>
+				<int> 28 </int>
+				<int> 29 </int>
+				<int> 30 </int>
+				<int> 31 </int>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "Sprite:visibility/opacity" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 0 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<real> 1 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://7">
+		<string name="resource/name"> "Shoot" </string>
+		<real name="length"> 0.8 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "Sprite:frame" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="8"> 				0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="8"> 				1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="8" shared="false">
+				<int> 32 </int>
+				<int> 33 </int>
+				<int> 34 </int>
+				<int> 35 </int>
+				<int> 36 </int>
+				<int> 37 </int>
+				<int> 38 </int>
+				<int> 39 </int>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "method" </string>
+		<node_path name="tracks/1/path"> "." </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.7 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<dictionary  shared="false">
+					<string> "args" </string>
+					<array  len="0" shared="false">
+					</array>
+					<string> "method" </string>
+					<string> "shoot" </string>
+				</dictionary>
+				<dictionary  shared="false">
+					<string> "args" </string>
+					<array  len="0" shared="false">
+					</array>
+					<string> "method" </string>
+					<string> "text" </string>
+				</dictionary>
+			</array>
+		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "SamplePlayer:play/play" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<bool name="tracks/2/imported"> False </bool>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<string> "mage_shoot" </string>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://6">
+		<real name="length"> 0.7 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.1 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "Sprite:frame" </node_path>
+		<int name="tracks/0/interp"> 2 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="8"> 				0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="8"> 				1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="8" shared="false">
+				<int> 24 </int>
+				<int> 25 </int>
+				<int> 26 </int>
+				<int> 27 </int>
+				<int> 28 </int>
+				<int> 29 </int>
+				<int> 30 </int>
+				<int> 31 </int>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "Sprite:visibility/opacity" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="2"> 				0, 0.7 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "update" </string>
+			<int> 0 </int>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 1 </real>
+				<real> 0 </real>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="SampleLibrary" path="local://8">
+		<dictionary name="samples/mage_shoot" shared="false">
+			<string> "db" </string>
+			<real> -12 </real>
+			<string> "pitch" </string>
+			<real> 0.9 </real>
+			<string> "priority" </string>
+			<int> 0 </int>
+			<string> "sample" </string>
+			<resource  external="13">  </resource>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://13">
+		<string name="resource/name"> "Off" </string>
+		<real name="length"> 0.06 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.05 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "backgroundcontroller/Background/ParallaxLayer/Third:visibility/visible" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> False </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "backgroundcontroller/Background/ParallaxLayer/Second:visibility/visible" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> False </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "backgroundcontroller/Background/ParallaxLayer/First:visibility/visible" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<bool name="tracks/2/imported"> False </bool>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> False </bool>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="Animation" path="local://11">
+		<string name="resource/name"> "On" </string>
+		<real name="length"> 0.06 </real>
+		<bool name="loop"> False </bool>
+		<real name="step"> 0.05 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> "backgroundcontroller/Background/ParallaxLayer/Third:visibility/visible" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<bool name="tracks/0/imported"> False </bool>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> True </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> "backgroundcontroller/Background/ParallaxLayer/Second:visibility/visible" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<bool name="tracks/1/imported"> False </bool>
+		<dictionary name="tracks/1/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> True </bool>
+			</array>
+		</dictionary>
+		<string name="tracks/2/type"> "value" </string>
+		<node_path name="tracks/2/path"> "backgroundcontroller/Background/ParallaxLayer/First:visibility/visible" </node_path>
+		<int name="tracks/2/interp"> 1 </int>
+		<bool name="tracks/2/imported"> False </bool>
+		<dictionary name="tracks/2/keys" shared="false">
+			<string> "times" </string>
+			<real_array  len="1"> 				0 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="1"> 				1 </real_array>
+			<string> "update" </string>
+			<int> 1 </int>
+			<string> "values" </string>
+			<array  len="1" shared="false">
+				<bool> True </bool>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://9">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 10, 35.3684 </vector2>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://15">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 56.615, 2.69475 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://10">
+		<string name="script/source"> "extends Area2D&#000a;&#000a;# class member variables go here, for example:&#000a;# var a = 2&#000a;# var b = &quot;textvar&quot;&#000a;var player = preload(&quot;res://scenes/player.gd&quot;)&#000a;var background1&#000a;var controller&#000a;&#000a;func _ready():&#000a;&#0009;background1 = get_parent()&#000a;&#0009;controller = get_node(&quot;/root/Controller&quot;)&#000a;&#0009;if controller.checkpoint &gt; 1:&#000a;&#0009;&#0009;background1.play(&quot;Off&quot;)&#000a;&#0009;&#000a;&#000a;&#000a;&#000a;func _on_transition_body_enter( body ):&#000a;&#0009;if body extends player:&#000a;&#0009;&#0009;background1.play(&quot;Off&quot;)&#000a;&#0009;&#0009;controller.snd_manager.change_song(&quot;res://sounds/undine.ogg&quot;)&#000a;" </string>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://14">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 56.6152, 4.71581 </vector2>
+
+	</resource>
+	<resource type="GDScript" path="local://12">
+		<string name="script/source"> "extends Area2D&#000a;&#000a;# class member variables go here, for example:&#000a;# var a = 2&#000a;# var b = &quot;textvar&quot;&#000a;var player = preload(&quot;res://scenes/player.gd&quot;)&#000a;var background1&#000a;var controller&#000a;&#000a;func _ready():&#000a;&#0009;background1 = get_parent()&#000a;&#0009;controller = get_node(&quot;/root/Controller&quot;)&#000a;&#0009;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;func _on_transition2_body_enter( body ):&#000a;&#0009;if body extends player:&#000a;&#0009;&#0009;background1.play(&quot;On&quot;)&#000a;&#0009;&#0009;&#000a;&#0009;&#0009;controller.snd_manager.change_song(&quot;res://sounds/snow.ogg&quot;)&#000a;" </string>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 3 </int>
+			<string> "conns" </string>
+			<int_array  len="18"> 				31, 26, 154, 153, 2, 0, 49, 49, 156, 155, 2, 0, 52, 52, 156, 157, 2, 0 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="158">
+				<string> "Node2D" </string>
+				<string> "__meta__" </string>
+				<string> "Part2" </string>
+				<string> "editor/display_folded" </string>
+				<string> "transform/pos" </string>
+				<string> "IciclePit" </string>
+				<string> "Entrance" </string>
+				<string> "ImpMix" </string>
+				<string> "Mage Stairs" </string>
+				<string> "Arena Split" </string>
+				<string> "Boss Room" </string>
+				<string> "Classmate" </string>
+				<string> "Overlay" </string>
+				<string> "z/z" </string>
+				<string> "mode" </string>
+				<string> "tile_set" </string>
+				<string> "cell/size" </string>
+				<string> "cell/quadrant_size" </string>
+				<string> "cell/custom_transform" </string>
+				<string> "cell/half_offset" </string>
+				<string> "cell/tile_origin" </string>
+				<string> "cell/y_sort" </string>
+				<string> "collision/use_kinematic" </string>
+				<string> "collision/friction" </string>
+				<string> "collision/bounce" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "occluder/light_mask" </string>
+				<string> "tile_data" </string>
+				<string> "TileMap" </string>
+				<string> "Player" </string>
+				<string> "Polygon2D" </string>
+				<string> "polygon" </string>
+				<string> "uv" </string>
+				<string> "color" </string>
+				<string> "vertex_colors" </string>
+				<string> "offset" </string>
+				<string> "texture/texture" </string>
+				<string> "texture/offset" </string>
+				<string> "texture/scale" </string>
+				<string> "texture/rotation" </string>
+				<string> "invert/enable" </string>
+				<string> "invert/border" </string>
+				<string> "Polygon2D1" </string>
+				<string> "Polygon2D 2" </string>
+				<string> "transform/scale" </string>
+				<string> "Stone" </string>
+				<string> "Checkpoints" </string>
+				<string> "Checkpoint" </string>
+				<string> "visibility/visible" </string>
+				<string> "Checkpoint2" </string>
+				<string> "id" </string>
+				<string> "Checkpoint3" </string>
+				<string> "Checkpoint4" </string>
+				<string> "Events" </string>
+				<string> "Intro" </string>
+				<string> "input/pickable" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "gravity_vec" </string>
+				<string> "gravity" </string>
+				<string> "linear_damp" </string>
+				<string> "angular_damp" </string>
+				<string> "script/script" </string>
+				<string> "Area2D" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "_update_shape_index" </string>
+				<string> "Dash" </string>
+				<string> "Lifeforce" </string>
+				<string> "Sprite" </string>
+				<string> "texture" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
+				<string> "frame" </string>
+				<string> "AnimationPlayer" </string>
+				<string> "playback/process_mode" </string>
+				<string> "playback/default_blend_time" </string>
+				<string> "root/root" </string>
+				<string> "anims/Idle" </string>
+				<string> "anims/Shoot" </string>
+				<string> "anims/Teleport" </string>
+				<string> "playback/active" </string>
+				<string> "playback/speed" </string>
+				<string> "blend_times" </string>
+				<string> "autoplay" </string>
+				<string> "Position2D" </string>
+				<string> "Timer" </string>
+				<string> "process_mode" </string>
+				<string> "wait_time" </string>
+				<string> "one_shot" </string>
+				<string> "autostart" </string>
+				<string> "SamplePlayer" </string>
+				<string> "config/polyphony" </string>
+				<string> "config/samples" </string>
+				<string> "default/volume_db" </string>
+				<string> "default/pitch_scale" </string>
+				<string> "default/pan" </string>
+				<string> "default/depth" </string>
+				<string> "default/height" </string>
+				<string> "default/filter/type" </string>
+				<string> "default/filter/cutoff" </string>
+				<string> "default/filter/resonance" </string>
+				<string> "default/filter/gain" </string>
+				<string> "default/reverb_room" </string>
+				<string> "default/reverb_send" </string>
+				<string> "default/chorus_send" </string>
+				<string> "CameraAnchor" </string>
+				<string> "Teleport" </string>
+				<string> "level" </string>
+				<string> "Enemies" </string>
+				<string> "Marker" </string>
+				<string> "Marker1" </string>
+				<string> "Worm" </string>
+				<string> "Worm1" </string>
+				<string> "Interactables" </string>
+				<string> "Blocks" </string>
+				<string> "Sprite1" </string>
+				<string> "Sprite3" </string>
+				<string> "Sprite4" </string>
+				<string> "Sprite2" </string>
+				<string> "backgroundhandler" </string>
+				<string> "backgroundcontroller" </string>
+				<string> "anims/Off" </string>
+				<string> "anims/On" </string>
+				<string> "transition1" </string>
+				<string> "shapes/1/shape" </string>
+				<string> "shapes/1/transform" </string>
+				<string> "shapes/1/trigger" </string>
+				<string> "CollisionShape2D1" </string>
+				<string> "transition2" </string>
+				<string> "Background2" </string>
+				<string> "ParallaxBackground" </string>
+				<string> "layer" </string>
+				<string> "rotation" </string>
+				<string> "scale" </string>
+				<string> "scroll/offset" </string>
+				<string> "scroll/base_offset" </string>
+				<string> "scroll/base_scale" </string>
+				<string> "scroll/limit_begin" </string>
+				<string> "scroll/limit_end" </string>
+				<string> "scroll/ignore_camera_zoom" </string>
+				<string> "Third" </string>
+				<string> "motion/scale" </string>
+				<string> "motion/offset" </string>
+				<string> "motion/mirroring" </string>
+				<string> "ParallaxLayer" </string>
+				<string> "region_rect" </string>
+				<string> "Second" </string>
+				<string> "First" </string>
+				<string> "Background" </string>
+				<string> "_on_Timer_timeout" </string>
+				<string> "timeout" </string>
+				<string> "_on_transition_body_enter" </string>
+				<string> "body_enter" </string>
+				<string> "_on_transition2_body_enter" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 71 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="1167"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 0, 2, -1, 2, 3, 1, 4, 2, 0, 1, 0, 2147483647, 5, 3, 1, 4, 4, 0, 1, 0, 2147483647, 6, 5, 2, 3, 1, 4, 6, 0, 1, 0, 2147483647, 7, 7, 1, 4, 8, 0, 1, 0, 2147483647, 8, 9, 1, 4, 10, 0, 1, 0, 2147483647, 9, 11, 1, 4, 12, 0, 1, 0, 2147483647, 10, 13, 1, 4, 14, 0, 1, 0, 2147483647, 11, 15, 1, 4, 16, 0, 0, 0, 29, 12, -1, 18, 4, 17, 13, 18, 14, 19, 15, 20, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 29, 1, 30, 0, 0, 0, 2147483647, 30, 31, 0, 0, 0, 0, 29, 29, -1, 16, 14, 19, 15, 32, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 33, 1, 34, 0, 11, 0, 31, 31, -1, 12, 32, 35, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 43, 0, 11, 0, 31, 43, -1, 12, 32, 44, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 45, 0, 11, 0, 31, 44, -1, 14, 4, 46, 45, 47, 32, 48, 33, 36, 34, 37, 35, 38, 36, 39, 37, 40, 38, 39, 39, 41, 40, 27, 41, 25, 42, 42, 1, 49, 0, 0, 0, 29, 46, -1, 16, 14, 19, 15, 50, 16, 21, 17, 22, 18, 23, 19, 24, 20, 19, 21, 25, 22, 25, 23, 26, 24, 27, 25, 28, 26, 28, 27, 28, 28, 51, 1, 52, 0, 0, 0, 0, 47, -1, 1, 1, 53, 0, 16, 0, 2147483647, 48, 54, 2, 49, 25, 4, 55, 0, 16, 0, 2147483647, 50, 54, 2, 4, 56, 51, 28, 0, 16, 0, 2147483647, 52, 54, 2, 4, 57, 51, 24, 0, 16, 0, 2147483647, 53, 54, 2, 4, 58, 51, 18, 0, 0, 0, 0, 54, -1, 1, 1, 59, 0, 21, 0, 65, 55, -1, 10, 4, 60, 56, 1, 57, 61, 58, 62, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 66, 0, 22, 0, 66, 66, -1, 4, 4, 67, 67, 61, 68, 25, 69, 19, 0, 21, 0, 65, 70, -1, 10, 4, 68, 56, 1, 57, 69, 58, 70, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 71, 0, 24, 0, 66, 66, -1, 4, 4, 72, 67, 69, 68, 25, 69, 19, 0, 21, 0, 65, 71, -1, 11, 3, 1, 4, 73, 56, 1, 57, 74, 58, 75, 59, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 76, 0, 26, 0, 66, 66, -1, 4, 4, 77, 67, 74, 68, 25, 69, 78, 0, 26, 0, 72, 72, -1, 5, 4, 79, 73, 80, 74, 81, 75, 81, 76, 82, 0, 26, 0, 77, 77, -1, 10, 78, 28, 79, 27, 80, 83, 81, 84, 82, 85, 83, 86, 84, 1, 85, 26, 86, 87, 87, 88, 0, 26, 0, 88, 88, -1, 1, 4, 89, 0, 26, 0, 89, 89, -1, 4, 90, 28, 91, 90, 92, 1, 93, 25, 0, 26, 0, 94, 94, -1, 14, 95, 28, 96, 91, 97, 27, 98, 26, 99, 27, 100, 27, 101, 27, 102, 19, 103, 27, 104, 27, 105, 27, 106, 24, 107, 27, 108, 27, 0, 21, 0, 2147483647, 109, 92, 1, 4, 93, 0, 21, 0, 2147483647, 110, 94, 2, 4, 95, 111, 96, 0, 0, 0, 0, 112, -1, 1, 1, 97, 0, 35, 0, 2147483647, 113, 98, 1, 4, 99, 0, 35, 0, 2147483647, 114, 98, 1, 4, 100, 0, 35, 0, 2147483647, 115, 101, 1, 4, 102, 0, 35, 0, 2147483647, 116, 101, 1, 4, 103, 0, 0, 0, 0, 117, -1, 0, 0, 0, 0, 0, 118, -1, 1, 1, 104, 0, 41, 0, 72, 72, -1, 5, 4, 105, 73, 106, 74, 81, 75, 81, 76, 107, 0, 41, 0, 72, 119, -1, 5, 4, 108, 73, 106, 74, 81, 75, 81, 76, 109, 0, 41, 0, 72, 120, -1, 5, 4, 110, 73, 106, 74, 81, 75, 81, 76, 111, 0, 41, 0, 72, 121, -1, 5, 4, 112, 73, 106, 74, 81, 75, 81, 76, 113, 0, 41, 0, 72, 122, -1, 5, 4, 114, 73, 106, 74, 81, 75, 81, 76, 115, 0, 0, 0, 0, 123, -1, 2, 4, 116, 45, 117, 0, 47, 0, 77, 124, -1, 9, 78, 28, 79, 27, 80, 83, 125, 118, 126, 119, 84, 1, 85, 26, 86, 87, 87, 120, 0, 48, 0, 65, 127, -1, 14, 4, 116, 45, 121, 56, 1, 57, 122, 58, 123, 59, 25, 128, 124, 129, 125, 130, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 126, 0, 49, 0, 66, 66, -1, 4, 4, 127, 67, 122, 68, 25, 69, 19, 0, 49, 0, 66, 131, -1, 4, 4, 128, 67, 124, 68, 25, 69, 28, 0, 48, 0, 65, 132, -1, 14, 4, 129, 45, 121, 56, 1, 57, 122, 58, 130, 59, 25, 128, 131, 129, 132, 130, 25, 60, 63, 61, 64, 62, 65, 63, 26, 64, 133, 0, 52, 0, 66, 66, -1, 4, 4, 134, 67, 122, 68, 25, 69, 19, 0, 52, 0, 66, 131, -1, 4, 4, 135, 67, 131, 68, 25, 69, 28, 0, 48, 0, 0, 133, -1, 2, 3, 1, 4, 136, 0, 55, 0, 134, 134, -1, 10, 135, 78, 36, 39, 136, 27, 137, 41, 138, 39, 139, 39, 140, 41, 141, 39, 142, 39, 143, 1, 0, 56, 0, 148, 144, -1, 3, 145, 137, 146, 39, 147, 138, 0, 57, 0, 72, 72, -1, 3, 4, 139, 73, 140, 149, 141, 0, 56, 0, 148, 150, -1, 3, 145, 142, 146, 39, 147, 138, 0, 59, 0, 72, 72, -1, 2, 4, 139, 73, 143, 0, 56, 0, 148, 151, -1, 3, 145, 144, 146, 39, 147, 138, 0, 61, 0, 72, 72, -1, 2, 4, 139, 73, 145, 0, 48, 0, 0, 152, -1, 1, 4, 146, 0, 63, 0, 134, 148, -1, 10, 135, 78, 36, 39, 136, 27, 137, 41, 138, 39, 139, 39, 140, 41, 141, 39, 142, 39, 143, 1, 0, 64, 0, 148, 144, -1, 4, 145, 147, 146, 39, 147, 138, 1, 148, 0, 65, 0, 72, 72, -1, 3, 4, 149, 73, 150, 1, 151, 0, 64, 0, 148, 150, -1, 4, 145, 142, 146, 39, 147, 138, 1, 152, 0, 67, 0, 72, 72, -1, 3, 4, 149, 73, 153, 1, 154, 0, 64, 0, 148, 151, -1, 4, 145, 155, 146, 39, 147, 138, 1, 156, 0, 69, 0, 72, 72, -1, 3, 4, 157, 73, 158, 1, 159, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="160" shared="false">
+				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "2D" </string>
+				</dictionary>
+				<bool> True </bool>
+				<vector2> 240, 137 </vector2>
+				<resource  external="0">  </resource>
+				<vector2> 2156, -281 </vector2>
+				<resource  external="1">  </resource>
+				<vector2> 2028, 103 </vector2>
+				<resource  external="2">  </resource>
+				<vector2> 3004, 119 </vector2>
+				<resource  external="3">  </resource>
+				<vector2> 3868, 71 </vector2>
+				<resource  external="4">  </resource>
+				<vector2> 2876, -313 </vector2>
+				<resource  external="5">  </resource>
+				<vector2> 1644, -217 </vector2>
+				<resource  external="6">  </resource>
+				<vector2> 1196, -217 </vector2>
+				<vector2> 0, 8 </vector2>
+				<int> 3 </int>
+				<int> 0 </int>
+				<resource  external="7">  </resource>
+				<vector2> 16, 16 </vector2>
+				<int> 16 </int>
+				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<int> 2 </int>
+				<bool> False </bool>
+				<real> 1 </real>
+				<real> 0 </real>
+				<int> 1 </int>
+				<int_array  len="118"> 					1179643, 1, 1179646, 2, 1179647, 3, 1114124, 5, 1114126, 1, 1114137, 0, 1114138, 2, 1114139, 5, 1114140, 0, 1114141, 0, 1114142, 1, 1114143, 1, 1114144, 5, 1114145, 0, 1114146, 0, 1114147, 2, 1114148, 0, 1114149, 4, 1114150, 1, 1114151, 0, 1114152, 3, 1114153, 1, 1114154, 1, 1114155, 1, 1114156, 0, 1114160, 2, 1245184, 4, 1245185, 0, 1245186, 1, 1245187, 3, 1245188, 0, 1245189, 0, 1245190, 2, 1245191, 0, 1245192, 1, 1245193, 0, 1245194, 4, 1245195, 0, 1441879, 10, 1441880, 9, 1441881, 9, 1441885, 10, 1441886, 9, 1441887, 10, 1441888, 9, 1507412, 9, 1507413, 9, 1572929, 8, 1638461, 0, 1638462, 2, 1703981, 6, 1703982, 0, 1703984, 1, 1703985, 2, 1703988, 0, 1703989, 0, 1703990, 1, 1703994, 0, 1703995, 7 </int_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  external="8">  </resource>
+				<resource  external="9">  </resource>
+				<int_array  len="716"> 					-983050, 3, -917514, 3, -851978, 3, -786442, 3, -720906, 3, -655370, 3, -589834, 3, -524298, 3, -458762, 3, -393226, 3, -327690, 3, -262155, 8, -262154, 7, -196619, 3, -131083, 3, -65547, 3, -11, 3, 65525, 3, 131061, 3, 196597, 3, 262133, 3, 327669, 10, 327670, 5, 393206, 3, 458742, 3, 393265, 4, 393266, 0, 393267, 0, 393268, 0, 393269, 0, 393270, 0, 393271, 0, 393272, 0, 393273, 0, 393274, 0, 393275, 0, 393276, 0, 393277, 5, 524278, 10, 524279, 5, 458767, 4, 458768, 0, 458769, 0, 458770, 0, 458771, 0, 458772, 0, 458773, 0, 458774, 0, 458775, 0, 458776, 5, 458800, 4, 458801, 11, 458813, 3, 458838, 2, 589815, 10, 589816, 5, 524303, 2, 524312, 3, 524336, 2, 524349, 10, 524350, 5, 524374, 2, 655352, 10, 655353, 5, 589839, 2, 589848, 3, 589872, 2, 589886, 10, 589887, 0, 589888, 5, 589910, 2, 720889, 3, 655375, 2, 655384, 3, 655408, 2, 655424, 3, 655446, 2, 655451, 3, 655454, 2, 786425, 10, 786426, 5, 720911, 2, 720920, 3, 720944, 2, 720960, 3, 720982, 2, 720987, 3, 720990, 2, 851962, 3, 786447, 6, 786448, 1, 786449, 9, 786456, 3, 786480, 6, 786481, 9, 786496, 3, 786518, 2, 786523, 3, 786526, 2, 917498, 3, 851985, 2, 851992, 3, 852017, 2, 852032, 3, 852054, 2, 852059, 3, 852062, 2, 983034, 3, 917521, 2, 917525, 8, 917526, 1, 917527, 1, 917528, 7, 917553, 2, 917568, 3, 917590, 2, 917595, 3, 917598, 2, 1048570, 3, 983057, 6, 983058, 1, 983059, 1, 983060, 1, 983061, 7, 983089, 2, 983104, 3, 983126, 6, 983127, 1, 983128, 9, 983131, 3, 983134, 2, 1114106, 3, 1048625, 2, 1048640, 3, 1048664, 6, 1048665, 9, 1048667, 3, 1048670, 2, 1179642, 3, 1114127, 4, 1114128, 0, 1114129, 0, 1114130, 0, 1114131, 0, 1114132, 0, 1114133, 0, 1114134, 0, 1114135, 0, 1114136, 5, 1114161, 2, 1114176, 3, 1114201, 2, 1114203, 3, 1114206, 2, 1245178, 3, 1179663, 2, 1179672, 10, 1179673, 0, 1179674, 0, 1179675, 0, 1179676, 0, 1179677, 0, 1179678, 0, 1179679, 0, 1179680, 0, 1179681, 0, 1179682, 0, 1179683, 0, 1179684, 0, 1179685, 0, 1179686, 0, 1179687, 0, 1179688, 0, 1179689, 0, 1179690, 0, 1179691, 0, 1179692, 5, 1179696, 4, 1179697, 11, 1179712, 3, 1179737, 6, 1179738, 1, 1179739, 7, 1179742, 6, 1179743, 1, 1179744, 1, 1179745, 1, 1179746, 1, 1179747, 1, 1179748, 1, 1179749, 1, 1179750, 1, 1179751, 1, 1179752, 1, 1179753, 1, 1179754, 1, 1179755, 1, 1179756, 1, 1179757, 1, 1179758, 1, 1179759, 1, 1179760, 1, 1179761, 1, 1179762, 1, 1179763, 1, 1179764, 1, 1179765, 1, 1310714, 3, 1245199, 2, 1245228, 3, 1245232, 2, 1245247, 8, 1245248, 7, 1376250, 10, 1376251, 0, 1376252, 0, 1376253, 0, 1376254, 0, 1376255, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310723, 0, 1310724, 0, 1310725, 0, 1310726, 0, 1310727, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1310731, 0, 1310732, 0, 1310733, 0, 1310734, 0, 1310735, 11, 1310764, 3, 1310768, 2, 1310781, 8, 1310782, 1, 1310783, 7, 1376300, 3, 1376304, 2, 1376314, 8, 1376315, 1, 1376316, 1, 1376317, 7, 1441836, 3, 1441840, 6, 1441841, 9, 1441849, 8, 1441850, 7, 1507372, 3, 1507377, 6, 1507378, 1, 1507379, 1, 1507380, 1, 1507381, 1, 1507382, 1, 1507383, 1, 1507384, 1, 1507385, 7, 1507415, 4, 1507416, 0, 1507417, 0, 1507418, 0, 1507419, 0, 1507420, 0, 1507421, 0, 1507422, 0, 1507423, 0, 1507424, 0, 1507425, 0, 1507426, 0, 1507427, 0, 1507428, 0, 1507429, 0, 1507430, 0, 1507431, 0, 1507432, 0, 1507433, 0, 1507434, 0, 1507435, 0, 1507436, 0, 1507437, 0, 1507438, 0, 1507439, 0, 1507440, 0, 1507441, 0, 1507442, 0, 1507443, 0, 1507444, 0, 1507445, 0, 1572906, 8, 1572907, 1, 1572908, 7, 1572945, 4, 1572946, 0, 1572947, 0, 1572948, 0, 1572949, 0, 1572950, 0, 1572951, 11, 1638442, 3, 1638443, 1, 1638444, 1, 1638463, 4, 1638464, 0, 1638465, 5, 1638481, 2, 1703978, 3, 1703979, 1, 1703980, 1, 1703996, 4, 1703997, 0, 1703998, 0, 1703999, 11, 1704001, 10, 1704002, 0, 1704003, 5, 1704017, 2, 1769514, 10, 1769515, 0, 1769516, 0, 1769517, 0, 1769518, 0, 1769519, 0, 1769520, 0, 1769521, 0, 1769522, 0, 1769523, 0, 1769524, 0, 1769525, 0, 1769526, 0, 1769527, 0, 1769528, 0, 1769529, 0, 1769530, 0, 1769531, 0, 1769532, 11, 1769538, 9, 1769539, 10, 1769540, 5, 1769553, 2, 1835075, 9, 1835076, 10, 1835077, 0, 1835078, 0, 1835079, 0, 1835080, 0, 1835081, 0, 1835082, 0, 1835083, 0, 1835084, 0, 1835085, 0, 1835086, 0, 1835087, 0, 1835088, 0, 1835089, 11 </int_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2_array  len="46"> 					-159, -270, -320, -273, -320, 624, 1986, 617, 1874, 179, 1389, 151, 1392, 240, 1424, 240, 1424, 256, 1440, 256, 1440, 288, 1537, 291, 1576, 383, 1408, 384, 1408, 400, 1344, 400, 1311, 400, 1311, 458, 1090, 459, 1072, 437, 1039, 416, 1024, 416, 1024, 432, 976, 432, 976, 448, 672, 448, 672, 384, 704, 384, 704, 304, 384, 304, 384.124, 285.299, 254.941, 286.938, 253.623, 335.162, -96, 336, -96, 192, -112, 192, -112, 160, -128, 160, -128, 144, -144, 144, -144, 128, -160, 128, -160, 80, -176, 80, -176, -77, -159, -77 </vector2_array>
+				<vector2_array  len="0"> 					 </vector2_array>
+				<color> 0.133333, 0.12549, 0.203922, 1 </color>
+				<color_array  len="0"> 					 </color_array>
+				<vector2> 0, 0 </vector2>
+				<resource name=""></resource>				<vector2> 1, 1 </vector2>
+				<real> 100 </real>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2_array  len="24"> 					800, 112, 800, 128, 784, 128, 784, 192, 800, 192, 800, 304, 784, 304, 784, 352, 800, 352, 800, 368, 912, 368, 912, 352, 928, 352, 928, 336, 976, 336, 976, 320, 1008, 320, 1008, 304, 1024, 304, 1024, 160, 992, 160, 992, 144, 976, 144, 976, 112 </vector2_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2> 255.685, 126.333 </vector2>
+				<vector2> 0.832877, 0.906039 </vector2>
+				<vector2_array  len="8"> 					-0.769745, 74.356, 37.3837, 75.6712, 38.9567, 126.583, 97.8539, 126.583, 103.463, 112.081, 155.166, 109.178, 154.712, 0.157928, -0.252167, 0.646088 </vector2_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  external="10">  </resource>
+				<int_array  len="52"> 					851983, 4, 851984, 5, 917519, 6, 917520, 7, 1114137, 11, 1245179, 11, 1245180, 8, 1245181, 10, 1245182, 11, 1245183, 11, 1179660, 12, 1179661, 11, 1179662, 11, 1310715, 8, 1310716, 10, 1310717, 11, 1310718, 11, 1310719, 11, 1245196, 14, 1245197, 11, 1245198, 11, 1376298, 11, 1572930, 4, 1572931, 5, 1638466, 6, 1638467, 7 </int_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  external="11">  </resource>
+				<vector2> -48, 288 </vector2>
+				<vector2> 688, 288 </vector2>
+				<vector2> 2156, 368 </vector2>
+				<vector2> 4188, 336 </vector2>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2> 66, 288 </vector2>
+				<resource  resource_type="Shape2D" path="local://1">  </resource>
+				<matrix32> 1, -0, 0, 1, 29, 21 </matrix32>
+				<vector2> 0, 1 </vector2>
+				<real> 98 </real>
+				<real> 0.1 </real>
+				<resource  resource_type="Script" path="local://2">  </resource>
+				<vector2> 29, 21 </vector2>
+				<vector2> 1070, 355 </vector2>
+				<resource  resource_type="Shape2D" path="local://16">  </resource>
+				<matrix32> 1, -0, 0, 1, -3, -7 </matrix32>
+				<resource  resource_type="Script" path="local://17">  </resource>
+				<vector2> -3, -7 </vector2>
+				<vector2> 608, 272 </vector2>
+				<resource  resource_type="Shape2D" path="local://3">  </resource>
+				<matrix32> 1, -0, 0, 1, -80, -74 </matrix32>
+				<resource  resource_type="Script" path="local://4">  </resource>
+				<vector2> -80, -74 </vector2>
+				<int> -1 </int>
+				<vector2> 16, 8 </vector2>
+				<resource  external="12">  </resource>
+				<int> 8 </int>
+				<int> 32 </int>
+				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://5">  </resource>
+				<resource  resource_type="Animation" path="local://7">  </resource>
+				<resource  resource_type="Animation" path="local://6">  </resource>
+				<array  len="0" shared="false">
+				</array>
+				<string> "Idle" </string>
+				<vector2> 12, 5 </vector2>
+				<real> 0.75 </real>
+				<resource  resource_type="SampleLibrary" path="local://8">  </resource>
+				<resource  external="14">  </resource>
+				<vector2> -16, 272 </vector2>
+				<resource  external="15">  </resource>
+				<vector2> 1581, 524 </vector2>
+				<string> "level1" </string>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  external="16">  </resource>
+				<vector2> 768, 432 </vector2>
+				<vector2> 943, 432 </vector2>
+				<resource  external="17">  </resource>
+				<vector2> 824, 432 </vector2>
+				<vector2> 896, 432 </vector2>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2> -16, 304 </vector2>
+				<resource  external="18">  </resource>
+				<int> 43 </int>
+				<vector2> 224, 304 </vector2>
+				<int> 44 </int>
+				<vector2> 256, 224 </vector2>
+				<int> 47 </int>
+				<vector2> 1072, 400 </vector2>
+				<int> 39 </int>
+				<vector2> 704, 416 </vector2>
+				<int> 45 </int>
+				<vector2> 1741, 340 </vector2>
+				<vector2> 0.40625, 1.48438 </vector2>
+				<resource  resource_type="Animation" path="local://13">  </resource>
+				<resource  resource_type="Animation" path="local://11">  </resource>
+				<string> "" </string>
+				<vector2> 0.40625, 1.48437 </vector2>
+				<resource  resource_type="Shape2D" path="local://9">  </resource>
+				<matrix32> 1, -0, 0, 1, 17.2309, 0.336838 </matrix32>
+				<resource  resource_type="Shape2D" path="local://15">  </resource>
+				<matrix32> 1, -0, 0, 1, -627.692, -132.716 </matrix32>
+				<resource  resource_type="Script" path="local://10">  </resource>
+				<vector2> 17.2309, 0.336838 </vector2>
+				<vector2> -627.692, -132.716 </vector2>
+				<vector2> 1742, 340 </vector2>
+				<matrix32> 1, -0, 0, 1, -27.0771, 0.673691 </matrix32>
+				<resource  resource_type="Shape2D" path="local://14">  </resource>
+				<matrix32> 1, -0, 0, 1, -630.154, -121.937 </matrix32>
+				<resource  resource_type="Script" path="local://12">  </resource>
+				<vector2> -27.0771, 0.673691 </vector2>
+				<vector2> -630.154, -121.937 </vector2>
+				<vector2> 7.00024, -7.49997 </vector2>
+				<vector2> 0.1, 0.05 </vector2>
+				<vector2> 480, 0 </vector2>
+				<vector2> 240, 56 </vector2>
+				<resource  external="19">  </resource>
+				<rect2> 0, 0, 1000, 120 </rect2>
+				<vector2> 0.4, 0.1 </vector2>
+				<resource  external="20">  </resource>
+				<vector2> 0.8, 0.15 </vector2>
+				<resource  external="21">  </resource>
+				<vector2> 7.00024, -0.499969 </vector2>
+				<vector2> 0.1, 0 </vector2>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2> 240, 96 </vector2>
+				<resource  external="22">  </resource>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  external="23">  </resource>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2> 0.8, 0.3 </vector2>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<vector2> 240, 144 </vector2>
+				<resource  external="24">  </resource>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

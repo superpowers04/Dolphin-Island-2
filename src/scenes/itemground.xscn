@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="4" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
+	<ext_resource path="res://images/items.png" type="Texture" index="0"></ext_resource>
+	<resource type="GDScript" path="local://7">
+		<string name="script/source"> "&#000a;extends Node&#000a;&#000a;&#000a;var attack = preload(&quot;res://scenes/attack.gd&quot;)&#000a;var marker = preload(&quot;res://scenes/marker.gd&quot;)&#000a;var text = [&quot;[Aisha]: I don&apos;t have any pockets\n to grab this!&quot;,&quot;[Aisha]: Now if only I had one of those\nInventories..&quot;]&#000a;var check = null&#000a;var cutscene = true&#000a;var do_text = true&#000a;var controller&#000a;var interacted = false&#000a;&#000a;func _ready():&#000a;&#0009;controller = get_node(&quot;/root/Controller&quot;)&#000a;&#000a;func _on_Interact_body_enter( body ):&#000a;&#0009;if (body extends attack):&#000a;&#0009;&#0009;var test = get_node(&quot;/root/Progress&quot;).checks&#000a;&#0009;&#0009;if (!interacted):&#000a;&#0009;&#0009;&#0009;interacted = true&#000a;&#0009;&#0009;&#0009;show()&#000a;&#0009;&#0009;&#0009;if (cutscene):&#000a;&#0009;&#0009;&#0009;&#0009;controller.begin_cutscene()&#000a;&#0009;&#0009;&#0009;if (check != null):&#000a;&#0009;&#0009;&#0009;&#0009;test[check] = true&#000a;&#0009;&#0009;&#0009;if (do_text):&#000a;&#0009;&#0009;&#0009;&#0009;controller.show_text(text)&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;&#000a;" </string>
+
+	</resource>
+	<resource type="RectangleShape2D" path="local://8">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 4, 8 </vector2>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 1 </int>
+			<string> "conns" </string>
+			<int_array  len="6"> 				2, 0, 30, 29, 2, 0 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="31">
+				<string> "Interactable" </string>
+				<string> "z/z" </string>
+				<string> "input/pickable" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "collision/margin" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "KinematicBody2D" </string>
+				<string> "Sprite" </string>
+				<string> "transform/pos" </string>
+				<string> "texture" </string>
+				<string> "flip_h" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
+				<string> "Interact" </string>
+				<string> "visibility/visible" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "gravity_vec" </string>
+				<string> "gravity" </string>
+				<string> "linear_damp" </string>
+				<string> "angular_damp" </string>
+				<string> "Area2D" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "_update_shape_index" </string>
+				<string> "_on_Interact_body_enter" </string>
+				<string> "body_enter" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 4 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="80"> 				-1, -1, 8, 0, -1, 7, 1, 0, 2, 1, 3, 0, 4, 0, 5, 2, 6, 3, 7, 4, 0, 0, 0, 9, 9, -1, 6, 10, 5, 11, 6, 12, 7, 13, 8, 14, 8, 7, 9, 0, 0, 0, 24, 15, -1, 9, 16, 1, 2, 7, 17, 10, 18, 11, 19, 1, 20, 12, 21, 13, 22, 14, 23, 15, 0, 2, 0, 25, 25, -1, 4, 10, 16, 26, 10, 27, 1, 28, 17, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="18" shared="false">
+				<int> 1 </int>
+				<bool> False </bool>
+				<real> 0.08 </real>
+				<resource  resource_type="Script" path="local://7">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "Script" </string>
+				</dictionary>
+				<vector2> 0, -8 </vector2>
+				<resource  external="0">  </resource>
+				<bool> True </bool>
+				<int> 8 </int>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  resource_type="Shape2D" path="local://8">  </resource>
+				<matrix32> 1, -0, 0, 1, 1, -8 </matrix32>
+				<vector2> 0, 1 </vector2>
+				<real> 98 </real>
+				<real> 0.1 </real>
+				<real> 1 </real>
+				<vector2> 1, -8 </vector2>
+				<int> -1 </int>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>
