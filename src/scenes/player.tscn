@@ -1122,12 +1122,12 @@ __meta__ = {
 
 [node name="LowerBody" type="Sprite" parent="."]
 
-transform/pos = Vector2( -0.142395, -16 )
+transform/pos = Vector2( 0, -16 )
 z/z = 1
 texture = ExtResource( 2 )
 vframes = 22
 hframes = 8
-frame = 24
+frame = 8
 __meta__ = {
 "_edit_lock_": true
 }
