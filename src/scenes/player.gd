@@ -107,13 +107,13 @@ func _fixed_process(delta):
 	if (bot_sprite.get_current_animation() != "Victory" and effects.get_current_animation() != "Invulnerable"):
 		effects.play("UpNone")
 	if(not cutscene):
-		walk_left = controller.walk_left 
-		walk_right = controller.walk_right
-		walk_up = controller.walk_up
-		walk_down = controller.walk_down
-		jump = controller.jumpkey
-		attack = controller.attackkey
-		dash_but = controller.dash_but
+		walk_left = controller.walk_leftk 
+		walk_right = controller.walk_rightk
+		walk_up = controller.walk_upk
+		walk_down = controller.walk_downk
+		jump = controller.jumpkeyk
+		attack = controller.attackkeyk
+		dash_but = controller.dash_butk
 		noidle = false
 	else:
 		if top_sprite.get_current_animation() != "transmission" and bot_sprite.get_current_animation() == "Idle" and cutsceneis != "":

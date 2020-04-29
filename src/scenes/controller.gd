@@ -41,15 +41,24 @@ var press_full = false
 var cutsceneis
 
 # Input
-var walk_left
-var walk_right
-var walk_up
-var walk_down
-var jumpkey
-var attackkey
-var dash_but
+var walk_leftk
+var walk_rightk
+var walk_upk
+var walk_downk
+var jumpkeyk
+var attackkeyk
+var dash_butk
+#Default keys
+var walk_left_key = OS.find_scancode_from_string("a")
+var walk_right_key = OS.find_scancode_from_string("d")
+var walk_up_key = OS.find_scancode_from_string("w")
+var walk_down_key = OS.find_scancode_from_string("s")
+var jump_key = OS.find_scancode_from_string("space")
+var attack_key = OS.find_scancode_from_string("control")
+var dash_key = OS.find_scancode_from_string("shift")
 
 
+var configfileloc= "res://configuration.cfg" 
 
 
 
@@ -58,6 +67,7 @@ var dash_but
 func _ready():
 #	OS.set_iterations_per_second(60)
 #	OS.set_target_fps(60)
+	
 	OS.set_window_maximized(true)
 	randomize()
 	var _root=get_tree().get_root()
@@ -74,19 +84,32 @@ func _ready():
 	camera = root.get_node("Map/Camera")
 	camera.make_current()
 	snd_manager = get_node("/root/SoundManager")
+	
+	# Config file
+	
+	var configFile= ConfigFile.new() 
+	configFile.load(configfileloc) 
+	if (configFile.has_section_key("Config", "version")): 
+		print("Config file exists!")
+		var walk_up_key = OS.find_scancode_from_string(configFile.get_value("Config", "key_up"))
+    	
+	
+	
+	
+	
 	set_fixed_process(true)
 
 func _fixed_process(delta):
 #	print(current_map.get_child_count())
 #	print(checkpoint)
 	#Input
-	walk_left = Input.is_action_pressed("ui_left")
-	walk_right = Input.is_action_pressed("ui_right")
-	walk_up = Input.is_action_pressed("ui_up")
-	walk_down = Input.is_action_pressed("ui_down")
-	jumpkey = Input.is_action_pressed("jump")
-	attackkey = Input.is_action_pressed("attack")
-	dash_but = Input.is_action_pressed("attack2")
+	walk_leftk = Input.is_key_pressed(walk_left_key) || Input.is_action_pressed("ui_left")
+	walk_rightk = Input.is_key_pressed(walk_right_key) || Input.is_action_pressed("ui_right")
+	walk_upk = Input.is_key_pressed(walk_up_key) || Input.is_action_pressed("ui_up")
+	walk_downk = Input.is_key_pressed(walk_down_key) || Input.is_action_pressed("ui_down")
+	jumpkeyk = Input.is_key_pressed(jump_key) || Input.is_action_pressed("jump")
+	attackkeyk = Input.is_key_pressed(attack_key) || Input.is_action_pressed("attack")
+	dash_butk = Input.is_key_pressed(dash_key) || Input.is_action_pressed("attack2")
 
 
 
