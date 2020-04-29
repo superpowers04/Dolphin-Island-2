@@ -40,6 +40,20 @@ var cutscene = false
 var press_full = false
 var cutsceneis
 
+# Input
+var walk_left
+var walk_right
+var walk_up
+var walk_down
+var jumpkey
+var attackkey
+var dash_but
+
+
+
+
+
+
 
 func _ready():
 #	OS.set_iterations_per_second(60)
@@ -65,6 +79,20 @@ func _ready():
 func _fixed_process(delta):
 #	print(current_map.get_child_count())
 #	print(checkpoint)
+	#Input
+	walk_left = Input.is_action_pressed("ui_left")
+	walk_right = Input.is_action_pressed("ui_right")
+	walk_up = Input.is_action_pressed("ui_up")
+	walk_down = Input.is_action_pressed("ui_down")
+	jumpkey = Input.is_action_pressed("jump")
+	attackkey = Input.is_action_pressed("attack")
+	dash_but = Input.is_action_pressed("attack2")
+
+
+
+
+
+
 	if (cam_target != null):
 		scroll_camera()
 	else:
@@ -103,6 +131,9 @@ func _fixed_process(delta):
 		orb.hide()
 		lifeforce_timer.stop()
 		full_lifeforce = false
+		
+
+	
 
 func life_up():
 	var time = lf_time - LF_UP * progress.checks["1ShieldUpgrade"]

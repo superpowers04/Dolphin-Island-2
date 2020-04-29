@@ -16,6 +16,7 @@ var load_timer
 var tmap
 var tcp
 
+
 func _ready():
 	c = get_node("/root/Controller")
 	load_timer = get_node("LoadTimer")

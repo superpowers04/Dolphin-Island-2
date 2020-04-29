@@ -39,6 +39,7 @@ var walk_up
 var walk_down
 var jump
 var attack
+var dash_but
 var waitingtodie = false
 # Combat
 var hurtful_class = preload("res://scenes/hurtful.gd")
@@ -69,12 +70,16 @@ var sfx
 # Cutscenes
 var controller
 var cutscene = false
-var dash_but
+
 var Effects2
 var topbodspr
 var botbodspr
 var cutsceneis = ""
 var noidle = false
+
+
+
+
 
 func _ready():
 	jump_time = get_node("Jump")
@@ -102,13 +107,13 @@ func _fixed_process(delta):
 	if (bot_sprite.get_current_animation() != "Victory" and effects.get_current_animation() != "Invulnerable"):
 		effects.play("UpNone")
 	if(not cutscene):
-		walk_left = Input.is_action_pressed("ui_left")
-		walk_right = Input.is_action_pressed("ui_right")
-		walk_up = Input.is_action_pressed("ui_up")
-		walk_down = Input.is_action_pressed("ui_down")
-		jump = Input.is_action_pressed("jump")
-		attack = Input.is_action_pressed("attack")
-		dash_but = Input.is_action_pressed("attack2")
+		walk_left = controller.walk_left 
+		walk_right = controller.walk_right
+		walk_up = controller.walk_up
+		walk_down = controller.walk_down
+		jump = controller.jumpkey
+		attack = controller.attackkey
+		dash_but = controller.dash_but
 		noidle = false
 	else:
 		if top_sprite.get_current_animation() != "transmission" and bot_sprite.get_current_animation() == "Idle" and cutsceneis != "":
