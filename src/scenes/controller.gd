@@ -49,16 +49,16 @@ var jumpkeyk
 var attackkeyk
 var dash_butk
 #Default keys
-var walk_left_key = OS.find_scancode_from_string("a")
-var walk_right_key = OS.find_scancode_from_string("d")
-var walk_up_key = OS.find_scancode_from_string("w")
-var walk_down_key = OS.find_scancode_from_string("s")
-var jump_key = OS.find_scancode_from_string("space")
-var attack_key = OS.find_scancode_from_string("control")
-var dash_key = OS.find_scancode_from_string("shift")
+var walk_left_key = "a"
+var walk_right_key = "d"
+var walk_up_key = "w"
+var walk_down_key = "s"
+var jump_key = "space"
+var attack_key = "control"
+var dash_key = "shift"
 
 
-var configfileloc= "res://configuration.cfg" 
+var configfileloc= "res://dolphin_island_config.txt" 
 
 
 
@@ -67,6 +67,7 @@ var configfileloc= "res://configuration.cfg"
 func _ready():
 #	OS.set_iterations_per_second(60)
 #	OS.set_target_fps(60)
+	
 	
 	OS.set_window_maximized(true)
 	randomize()
@@ -89,13 +90,38 @@ func _ready():
 	
 	var configFile= ConfigFile.new() 
 	configFile.load(configfileloc) 
-	if (configFile.has_section_key("Config", "version")): 
+	
+	if (configFile.has_section_key("config", "version")): 
 		print("Config file exists!")
-		var walk_up_key = OS.find_scancode_from_string(configFile.get_value("Config", "key_up"))
-    	
+		walk_up_key = configFile.get_value("keys", "key_up")
+		walk_down_key = configFile.get_value("keys", "key_down")
+		walk_right_key = configFile.get_value("keys", "key_right")
+		walk_left_key = configFile.get_value("keys", "key_left")
+		jump_key = configFile.get_value("keys", "key_jump")
+		attack_key = configFile.get_value("keys", "key_attack")
+		dash_key = configFile.get_value("keys", "key_dash")
+		OS.set_target_fps(configFile.get_value("config", "FPS"))
+	else:
+		configFile.set_value("config","OS",OS.get_name())
+		configFile.set_value("keys","key_up",walk_up_key) 
+		configFile.set_value("keys","key_down",walk_down_key)
+		configFile.set_value("keys","key_right",walk_right_key)
+		configFile.set_value("keys","key_left",walk_left_key)
+		configFile.set_value("keys","key_jump",jump_key)
+		configFile.set_value("keys","key_attack",attack_key)
+		configFile.set_value("keys","key_dash",dash_key)
+		configFile.set_value("config","version","0.1")
+		configFile.set_value("config","FPS",60)
+		configFile.save(configfileloc)
 	
-	
-	
+	walk_up_key = OS.find_scancode_from_string(walk_up_key)
+	walk_down_key = OS.find_scancode_from_string(walk_down_key)
+	walk_right_key = OS.find_scancode_from_string(walk_right_key)
+	walk_left_key = OS.find_scancode_from_string(walk_left_key)
+	jump_key = OS.find_scancode_from_string(jump_key)
+	attack_key = OS.find_scancode_from_string(attack_key)
+	dash_key = OS.find_scancode_from_string(dash_key)
+
 	
 	set_fixed_process(true)
 

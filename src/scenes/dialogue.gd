@@ -6,17 +6,20 @@ var current_text = []
 var timer
 var snd_manager
 var state = "closed"
+var controller
+
 
 func _ready():
 	state = "closed"
 	label = get_node("Text")
 	timer = get_node("Timer")
+	controller = get_node("/root/Controller")
 	snd_manager = get_node("/root/SoundManager")
 	
 func _fixed_process(delta):
-#	print(state)
+#	print(state) jump_key
 	if (state == "waitaccept"):
-		if (Input.is_action_pressed("attack") or Input.is_action_pressed("jump")):
+		if (controller.attackkeyk or controller.jumpkeyk):
 			if (current_text.size() > 0):
 				snd_manager.play_sfx("accept")
 				label.set_text(current_text[0])
