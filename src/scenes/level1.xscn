@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="12" version="2.1" version_name="Godot Engine v2.1.6.stable.official">
-	<ext_resource path="res://images/snowbg2.png" type="Texture" index="9"></ext_resource>
-	<ext_resource path="res://scenes/l1_bossroom.scn" type="PackedScene" index="6"></ext_resource>
-	<ext_resource path="res://images/snowbg1.png" type="Texture" index="10"></ext_resource>
 	<ext_resource path="res://images/snowbg3.png" type="Texture" index="8"></ext_resource>
-	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://images/snowbg2.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://images/snowbg1.png" type="Texture" index="10"></ext_resource>
 	<ext_resource path="res://scenes/l1_classmates.xscn" type="PackedScene" index="7"></ext_resource>
-	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="3"></ext_resource>
-	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="4"></ext_resource>
 	<ext_resource path="res://scenes/l1_arenasplit.scn" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="1"></ext_resource>
+	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scenes/l1_bossroom.scn" type="PackedScene" index="6"></ext_resource>
+	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="4"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -82,7 +82,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="204"> 				-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 2, 3, -1, 1, 4, 1, 0, 1, 0, 2147483647, 5, 2, 1, 6, 3, 0, 0, 0, 2147483647, 7, 4, 1, 6, 5, 0, 3, -1, 2147483647, 9, -1, 1, 10, 6, 0, 0, 0, 2147483647, 25, 7, 2, 4, 1, 6, 8, 0, 0, 0, 2147483647, 26, 9, 1, 6, 10, 0, 0, 0, 2147483647, 27, 11, 1, 6, 12, 0, 0, 0, 2147483647, 28, 13, 1, 6, 14, 0, 0, 0, 2147483647, 29, 15, 1, 6, 16, 0, 0, 0, 2147483647, 30, 17, 1, 6, 18, 0, 0, 0, 31, 31, -1, 11, 4, 1, 32, 19, 33, 20, 34, 21, 35, 22, 36, 20, 37, 20, 38, 22, 39, 20, 40, 20, 41, 1, 0, 11, 0, 46, 42, -1, 3, 43, 23, 44, 20, 45, 24, 0, 12, 0, 47, 47, -1, 3, 6, 25, 48, 26, 49, 27, 0, 11, 0, 46, 50, -1, 3, 43, 28, 44, 20, 45, 24, 0, 14, 0, 47, 47, -1, 2, 6, 25, 48, 29, 0, 11, 0, 46, 51, -1, 3, 43, 30, 44, 20, 45, 24, 0, 16, 0, 47, 47, -1, 2, 6, 25, 48, 31, 0 </int_array>
+			<int_array  len="206"> 				-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 2, 3, -1, 1, 4, 1, 0, 1, 0, 2147483647, 5, 2, 1, 6, 3, 0, 0, 0, 2147483647, 7, 4, 2, 4, 1, 6, 5, 0, 3, -1, 2147483647, 9, -1, 1, 10, 6, 0, 0, 0, 2147483647, 25, 7, 2, 4, 1, 6, 8, 0, 0, 0, 2147483647, 26, 9, 1, 6, 10, 0, 0, 0, 2147483647, 27, 11, 1, 6, 12, 0, 0, 0, 2147483647, 28, 13, 1, 6, 14, 0, 0, 0, 2147483647, 29, 15, 1, 6, 16, 0, 0, 0, 2147483647, 30, 17, 1, 6, 18, 0, 0, 0, 31, 31, -1, 11, 4, 1, 32, 19, 33, 20, 34, 21, 35, 22, 36, 20, 37, 20, 38, 22, 39, 20, 40, 20, 41, 1, 0, 11, 0, 46, 42, -1, 3, 43, 23, 44, 20, 45, 24, 0, 12, 0, 47, 47, -1, 3, 6, 25, 48, 26, 49, 27, 0, 11, 0, 46, 50, -1, 3, 43, 28, 44, 20, 45, 24, 0, 14, 0, 47, 47, -1, 2, 6, 25, 48, 29, 0, 11, 0, 46, 51, -1, 3, 43, 30, 44, 20, 45, 24, 0, 16, 0, 47, 47, -1, 2, 6, 25, 48, 31, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="32" shared="false">
 				<dictionary  shared="false">

@@ -59,7 +59,7 @@ var dash_key = "shift"
 #Text
 var menutext = ""
 var titlescreentext = {1 : "Press Z to start"}
-
+var dialog = {}
 var configfileloc= "res://dolphin_island_config.txt" 
 
 
@@ -119,7 +119,14 @@ func _ready():
 
 	#Handle dynamic text
 	titlescreentext = {1 : str("Press ", jump_key,", or ",attack_key," to start")}
-	
+	dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
+			"[Aisha]: Sweet outfit. \nI even got a badass sword!", 
+			"[Sora]: Haha. Don't get so excited. \nGo take a look around."], 
+			"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
+			"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key, "+", attack_key ," to execute a stronger attack.")] ,
+			"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
+			"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."]}
+
 	#Handle keycode conversions
 
 	walk_up_key = OS.find_scancode_from_string(walk_up_key)

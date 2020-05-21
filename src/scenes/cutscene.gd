@@ -24,4 +24,4 @@ func _on_Area2D_body_enter( body ):
 			if (check != null):
 				test[check] = true
 			if (do_text):
-				controller.show_text(text)
+				controller.show_text(controller.dialog[check])
