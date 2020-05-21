@@ -1,2 +1,6 @@
 # Specify filepatterns you want git to ignore.
 
+
+bin/dolphin_island_config.txt
+
+src/dolphin_island_config.txt
