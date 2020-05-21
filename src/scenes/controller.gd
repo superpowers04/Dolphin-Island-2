@@ -56,7 +56,9 @@ var walk_down_key = "s"
 var jump_key = "space"
 var attack_key = "control"
 var dash_key = "shift"
-
+#Text
+var menutext = ""
+var titlescreentext = {1 : "Press Z to start"}
 
 var configfileloc= "res://dolphin_island_config.txt" 
 
@@ -113,7 +115,13 @@ func _ready():
 		configFile.set_value("config","version","0.1")
 		configFile.set_value("config","FPS",60)
 		configFile.save(configfileloc)
+
+
+	#Handle dynamic text
+	titlescreentext = {1 : str("Press ", jump_key,", or ",attack_key," to start")}
 	
+	#Handle keycode conversions
+
 	walk_up_key = OS.find_scancode_from_string(walk_up_key)
 	walk_down_key = OS.find_scancode_from_string(walk_down_key)
 	walk_right_key = OS.find_scancode_from_string(walk_right_key)
