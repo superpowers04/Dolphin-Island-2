@@ -61,7 +61,7 @@ var menutext = ""
 var titlescreentext = {1 : "Press Z to start"}
 var dialog = {}
 var configfileloc= "res://dolphin_island_config.txt" 
-
+var langfileloc= "res://dolphin_island_lang.txt" 
 
 
 
