@@ -4,9 +4,14 @@ extends Node2D
 var can_press = false
 var sound
 var camera
+var c
+var root
 
 func _ready():
 	sound = get_node("SamplePlayer")
+	c = get_node("/root/Controller")
+	var _root=get_tree().get_root()
+	root = _root.get_child(_root.get_child_count()-1)
 	camera = get_tree().get_root().get_node("root").find_node("Camera")
 	set_fixed_process(true)
 	
@@ -23,7 +28,7 @@ func _fixed_process(delta):
 #			camera.set("zoom",Vector2(1,1))
 			get_node("AnimationPlayer").play("unpause")
 			
-		else:
+		elif (root.map_names[c.current_map_name] != "title" != 0):
 #			camera.set("zoom",Vector2(0.5,0.5))
 			
 			#get_tree().set_pause(true)
