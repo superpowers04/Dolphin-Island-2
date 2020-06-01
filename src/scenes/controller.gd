@@ -126,7 +126,8 @@ func _ready():
 			"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
 			"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key, "+", attack_key ," to execute a stronger attack.")] ,
 			"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
-			"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."]}
+			"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
+			str("Controls:\n",walk_up_key," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key," and ", walk_right_key," to move left and right\n",walk_down_key," to crouch/slide\n",jump_key," to jump\n",attack_key," To attack\n",dash_key," to dash","\nL to reset if stuck")}
 
 	#Handle keycode conversions
 

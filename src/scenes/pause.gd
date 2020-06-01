@@ -32,6 +32,7 @@ func _fixed_process(delta):
 #			camera.set("zoom",Vector2(0.5,0.5))
 			
 			#get_tree().set_pause(true)
+			get_node("Pause/Controls").set_text(c.dialog["Controls"])
 			get_node("AnimationPlayer").play("pause")
 			sound.play("accept")
 			
