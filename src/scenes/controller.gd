@@ -60,8 +60,8 @@ var dash_key = "shift"
 var menutext = ""
 var titlescreentext = {1 : "Press Z to start"}
 var dialog = {}
-var configfileloc= "res://dolphin_island_config.txt" 
-var langfileloc= "res://dolphin_island_lang.txt" 
+var configfileloc= "user://dolphin_island_config.txt" 
+var langfileloc= "user://dolphin_island_lang.txt" 
 
 
 
@@ -104,6 +104,7 @@ func _ready():
 		dash_key = configFile.get_value("keys", "key_dash")
 		OS.set_target_fps(configFile.get_value("config", "FPS"))
 	else:
+		print("Config file doesn't exist, Creating!")
 		configFile.set_value("config","OS",OS.get_name())
 		configFile.set_value("keys","key_up",walk_up_key) 
 		configFile.set_value("keys","key_down",walk_down_key)
