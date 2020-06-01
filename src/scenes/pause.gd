@@ -20,11 +20,15 @@ func _fixed_process(delta):
 		if (get_tree().is_paused()):
 			sound.play("cancel")
 			get_tree().set_pause(false)
-			camera.set("zoom",Vector2(1,1))
-			hide()
+#			camera.set("zoom",Vector2(1,1))
+			get_node("AnimationPlayer").play("unpause")
+			
 		else:
-			camera.set("zoom",Vector2(0.5,0.5))
-			show()
-			get_tree().set_pause(true)
+#			camera.set("zoom",Vector2(0.5,0.5))
+			
+			#get_tree().set_pause(true)
+			get_node("AnimationPlayer").play("pause")
 			sound.play("accept")
 			
+func pause():
+	get_tree().set_pause(true)
