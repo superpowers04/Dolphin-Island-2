@@ -123,7 +123,7 @@ func _ready():
 				"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
 				"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
 				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck")
-				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")]}
+				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")],"pausesign":"Press P to pause and look at the controls"}
 
 	
 	
@@ -175,7 +175,7 @@ func _ready():
 				"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
 				"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
 				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck")
-				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")]}
+				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")],"pausesign":"Press P to pause and look at the controls"}
 
 	#Handle keycode conversions
 
