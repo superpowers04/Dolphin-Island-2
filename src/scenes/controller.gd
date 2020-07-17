@@ -56,13 +56,24 @@ var walk_down_key = "s"
 var jump_key = "space"
 var attack_key = "control"
 var dash_key = "shift"
+#Key names
+var walk_up_key_name = "up"
+var walk_down_key_name = "down"
+var walk_right_key_name = "right"
+var walk_left_key_name = "left"
+var jump_key_name = "A"
+var dash_key_name = "B"
+var attack_key_name = "X"
+
+
 #Text
 var menutext = ""
 var titlescreentext = {1 : "Press Z to start"}
 var dialog = {}
 var configfileloc= "user://dolphin_island_config.txt" 
 var langfileloc= "user://dolphin_island_lang.txt" 
-
+var controllerconnected = false
+var controllerwasconnected = controllerconnected
 
 
 
@@ -93,6 +104,29 @@ func _ready():
 	var configFile= ConfigFile.new() 
 	configFile.load(configfileloc) 
 	
+	if Input.is_joy_known(0):
+		walk_up_key_name = "up"
+		walk_down_key_name = "down"
+		walk_right_key_name = "right"
+		walk_left_key_name = "left"
+		jump_key_name = "A"
+		dash_key_name = "B"
+		attack_key_name = "X"
+		
+		
+		titlescreentext = {1 : str("Press ", jump_key_name,", or ",attack_key_name," to start")}
+		dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
+				"[Aisha]: Sweet outfit. \nI even got a badass sword!", 
+				"[Sora]: Haha. Don't get so excited. \nGo take a look around."], 
+				"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
+				"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key_name, "+", attack_key_name ," to execute a stronger attack.")] ,
+				"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
+				"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
+				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck")
+				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")]}
+
+	
+	
 	if (configFile.has_section_key("config", "version")): 
 		print("Config file exists!")
 		walk_up_key = configFile.get_value("keys", "key_up")
@@ -102,6 +136,7 @@ func _ready():
 		jump_key = configFile.get_value("keys", "key_jump")
 		attack_key = configFile.get_value("keys", "key_attack")
 		dash_key = configFile.get_value("keys", "key_dash")
+
 		OS.set_target_fps(configFile.get_value("config", "FPS"))
 	else:
 		print("Config file doesn't exist, Creating!")
@@ -117,19 +152,39 @@ func _ready():
 		configFile.set_value("config","FPS",60)
 		configFile.save(configfileloc)
 
+# Handle key names
+	walk_up_key_name = walk_up_key
+	walk_down_key_name = walk_down_key
+	walk_right_key_name = walk_right_key
+	walk_left_key_name = walk_left_key
+	jump_key_name = jump_key
+	dash_key_name = dash_key
+	attack_key_name = attack_key
+
 
 	#Handle dynamic text
-	titlescreentext = {1 : str("Press ", jump_key,", or ",attack_key," to start")}
-	dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
-			"[Aisha]: Sweet outfit. \nI even got a badass sword!", 
-			"[Sora]: Haha. Don't get so excited. \nGo take a look around."], 
-			"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
-			"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key, "+", attack_key ," to execute a stronger attack.")] ,
-			"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
-			"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
-			str("Controls:\n",walk_up_key," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key," and ", walk_right_key," to move left and right\n",walk_down_key," to crouch/slide\n",jump_key," to jump\n",attack_key," To attack\n",dash_key," to dash","\nL to reset if stuck")}
+	if !Input.is_joy_known(0):
+		controllerconnected = true
+		controllerwasconnected = true
+		titlescreentext = {1 : str("Press ", jump_key_name,", or ",attack_key_name," to start")}
+		dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
+				"[Aisha]: Sweet outfit. \nI even got a badass sword!", 
+				"[Sora]: Haha. Don't get so excited. \nGo take a look around."], 
+				"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
+				"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key_name, "+", attack_key_name ," to execute a stronger attack.")] ,
+				"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
+				"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
+				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck")
+				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")]}
 
 	#Handle keycode conversions
+
+
+
+
+
+
+
 
 	walk_up_key = OS.find_scancode_from_string(walk_up_key)
 	walk_down_key = OS.find_scancode_from_string(walk_down_key)
@@ -153,9 +208,13 @@ func _fixed_process(delta):
 	jumpkeyk = Input.is_key_pressed(jump_key) || Input.is_action_pressed("jump")
 	attackkeyk = Input.is_key_pressed(attack_key) || Input.is_action_pressed("attack")
 	dash_butk = Input.is_key_pressed(dash_key) || Input.is_action_pressed("attack2")
-
-
-
+	controllerconnected = Input.is_joy_known(0)
+#	if controllerconnected != controllerwasconnected:
+#		if Input.is_joy_known(0):
+#			show_text(dialog["controller_connected"])
+#		else:
+#			show_text(dialog["controller_disconnected"])
+#		controllerwasconnected = controllerconnected
 
 
 
@@ -181,6 +240,9 @@ func _fixed_process(delta):
 	# Manage Lifeforce
 	var orb = ui.get_node("Orb")
 	if (lf_active):
+
+		
+		
 		var lifeforce_bar = ui.get_node("BarFill")
 		if (lifeforce_timer.get_time_left() > 0):
 			var raw_progress = lifeforce_timer.get_wait_time()-lifeforce_timer.get_time_left()
