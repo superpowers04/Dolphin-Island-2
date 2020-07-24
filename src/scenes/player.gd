@@ -406,21 +406,29 @@ func stop(delta):
 
 func attack():
 		attacking = true
-		if (top_sprite.get_current_animation() != "Attack" and top_sprite.get_current_animation() != "Attack2"):
+		if walk_down:
+			controller.attackdmg = 1.5
+		else:
+			controller.attackdmg = 1
+		if (top_sprite.get_current_animation() != "Attack" and top_sprite.get_current_animation() != "Attack2" and top_sprite.get_current_animation() != "Attack3"):
 			top_sprite.play("Attack")
 		elif (top_sprite.get_current_animation() == "Attack"):
 			top_sprite.play("Attack2")
 		elif (top_sprite.get_current_animation() == "Attack2"):
+			top_sprite.play("Attack3")
+		elif (top_sprite.get_current_animation() == "Attack3"):
 			top_sprite.play("Attack")
 
 func strong_attack():
 		attacking = true
+		controller.attackdmg = 2
 		attack_spot.add_child(strong_hit.instance())
 		top_sprite.play("StrongAttack")
 
 func is_attacking():
 	if (top_sprite.get_current_animation() == "Attack" or
 		top_sprite.get_current_animation() == "Attack2" or
+		top_sprite.get_current_animation() == "Attack3" or
 		top_sprite.get_current_animation() == "StrongAttack"):
 		return true
 	else:

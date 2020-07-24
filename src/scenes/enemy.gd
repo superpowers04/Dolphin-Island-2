@@ -41,4 +41,4 @@ func _death():
 	queue_free()
 
 func _get_hit():
-	hp -= 1
+	hp -= controller.attackdmg

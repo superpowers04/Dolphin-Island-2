@@ -74,7 +74,7 @@ var configfileloc= "user://dolphin_island_config.txt"
 var langfileloc= "user://dolphin_island_lang.txt" 
 var controllerconnected = false
 var controllerwasconnected = controllerconnected
-
+var attackdmg = 1
 
 
 func _ready():
