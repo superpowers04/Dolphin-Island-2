@@ -75,7 +75,7 @@ var langfileloc= "user://dolphin_island_lang.txt"
 var controllerconnected = false
 var controllerwasconnected = controllerconnected
 var attackdmg = 1
-
+var ismobile = false
 
 func _ready():
 #	OS.set_iterations_per_second(60)
@@ -103,32 +103,15 @@ func _ready():
 	
 	var configFile= ConfigFile.new() 
 	configFile.load(configfileloc) 
-	
-	if Input.is_joy_known(0):
-		walk_up_key_name = "up"
-		walk_down_key_name = "down"
-		walk_right_key_name = "right"
-		walk_left_key_name = "left"
-		jump_key_name = "A"
-		dash_key_name = "B"
-		attack_key_name = "X"
-		
-		
-		titlescreentext = {1 : str("Press ", jump_key_name,", or ",attack_key_name," to start")}
-		dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
-				"[Aisha]: Sweet outfit. \nI even got a badass sword!", 
-				"[Sora]: Haha. Don't get so excited. \nGo take a look around."], 
-				"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
-				"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key_name, "+", attack_key_name ," to execute a stronger attack.")] ,
-				"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
-				"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
-				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck")
-				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")],"pausesign":"Press P to pause and look at the controls"}
+	print(str("Running on ",OS.get_name(),"/",OS.get_model_name()))
 
+		
+		
+	
 	
 	
 	if (configFile.has_section_key("config", "version")): 
-		print("Config file exists!")
+		print(str("Config file exists at '",OS.get_data_dir(),"/dolphin_island_config.txt'!"))
 		walk_up_key = configFile.get_value("keys", "key_up")
 		walk_down_key = configFile.get_value("keys", "key_down")
 		walk_right_key = configFile.get_value("keys", "key_right")
@@ -138,7 +121,7 @@ func _ready():
 		dash_key = configFile.get_value("keys", "key_dash")
 
 		OS.set_target_fps(configFile.get_value("config", "FPS"))
-	else:
+	elif !ismobile:
 		print("Config file doesn't exist, Creating!")
 		configFile.set_value("config","OS",OS.get_name())
 		configFile.set_value("keys","key_up",walk_up_key) 
@@ -151,30 +134,40 @@ func _ready():
 		configFile.set_value("config","version","0.1")
 		configFile.set_value("config","FPS",60)
 		configFile.save(configfileloc)
+	if OS.get_name() == "Android":
+		print("Running on Android, Config disabled, Mouse 1 binding disabled!")
+		ismobile = true
+
 
 # Handle key names
-	walk_up_key_name = walk_up_key
-	walk_down_key_name = walk_down_key
-	walk_right_key_name = walk_right_key
-	walk_left_key_name = walk_left_key
-	jump_key_name = jump_key
-	dash_key_name = dash_key
-	attack_key_name = attack_key
+#		walk_up_key_name = "up"
+#		walk_down_key_name = "down"
+#		walk_right_key_name = "right"
+#		walk_left_key_name = "left"
+#		jump_key_name = "A"
+#		dash_key_name = "B"
+#		attack_key_name = "X"
+	
+	walk_up_key_name = str("UP /",walk_up_key)
+	walk_down_key_name = str("DOWN /",walk_down_key)
+	walk_right_key_name = str("RIGHT /",walk_right_key)
+	walk_left_key_name = str("LEFT /",walk_left_key)
+	jump_key_name = str("(A) /",jump_key)
+	dash_key_name = str("(B) /",dash_key)
+	attack_key_name = str("(X) /",attack_key)
 
 
 	#Handle dynamic text
-	if !Input.is_joy_known(0):
-		controllerconnected = true
-		controllerwasconnected = true
-		titlescreentext = {1 : str("Press ", jump_key_name,", or ",attack_key_name," to start")}
-		dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
+	
+	titlescreentext = {1 : str("Press ", jump_key_name,", or ",attack_key_name," to start")}
+	dialog = { "TutorialIntro" : ["[Sora]: You're inside. \nTry to get used to this digital form.",
 				"[Aisha]: Sweet outfit. \nI even got a badass sword!", 
 				"[Sora]: Haha. Don't get so excited. \nGo take a look around."], 
 				"DashIntro" : ["[Aisha]: Hey, Uhh How am\n I supposed to get across this gap?", "[Sora]: Dash across.\n You can dash in any direction aswell","[Aisha]: Oh, Thanks!"],
 				"1Arenabeat" : ["You got a Lifeforce Crystal!", "Your shield will regenerate faster now."], "1BossDead" : ["You got the Air Slash!", str("Press ", walk_up_key_name, "+", attack_key_name ," to execute a stronger attack.")] ,
 				"1Classmate" : ["[Aisha]: Megan! It's you!", "[Megan]: Aisha! Thank God. \nI've been so alone.", "[Aisha]: Don't worry, we'll get you out \nof here. Have you seen the others?", "[Megan]: No, I haven't left this \nplace since I arrived.",
 				"[Aisha]: Alright. Sora? \nIf you would, please.", "[Sora]: Right on it!", "[Aisha]: See you outside."], "Controls":
-				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck")
+				str("Controls:\n",walk_up_key_name," to use charged attack(Unlockable)\nor to aim up for dash\n",walk_left_key_name," and ", walk_right_key_name," to move left and right\n",walk_down_key_name," to crouch/slide\n",jump_key_name," to jump\n",attack_key_name," To attack\n",dash_key_name," to dash","\nL to reset if stuck\n")
 				,"controller_disconnected":[str("Controller was disconnected!, Press ",attack_key_name, " to continue")],"controller_connected":[str("Controller connected, Press A or the equivelent to continue")],"pausesign":"Press P to pause and look at the controls"}
 
 	#Handle keycode conversions
@@ -206,9 +199,9 @@ func _fixed_process(delta):
 	walk_upk = Input.is_key_pressed(walk_up_key) || Input.is_action_pressed("ui_up")
 	walk_downk = Input.is_key_pressed(walk_down_key) || Input.is_action_pressed("ui_down")
 	jumpkeyk = Input.is_key_pressed(jump_key) || Input.is_action_pressed("jump")
-	attackkeyk = Input.is_key_pressed(attack_key) || Input.is_action_pressed("attack")
+	attackkeyk = Input.is_key_pressed(attack_key) || Input.is_action_pressed("attack") || (!ismobile and Input.is_mouse_button_pressed(1))
 	dash_butk = Input.is_key_pressed(dash_key) || Input.is_action_pressed("attack2")
-	controllerconnected = Input.is_joy_known(0)
+	
 #	if controllerconnected != controllerwasconnected:
 #		if Input.is_joy_known(0):
 #			show_text(dialog["controller_connected"])
