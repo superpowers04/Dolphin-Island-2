@@ -26,7 +26,7 @@ func _fixed_process(delta):
 		doapause()
 			
 func doapause():
-	print("lets go")
+	
 	can_press = false
 	
 	if (get_tree().is_paused()):
