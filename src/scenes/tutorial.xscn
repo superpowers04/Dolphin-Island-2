@@ -12,21 +12,21 @@
 	<ext_resource path="res://scenes/stone.xml" type="TileSet" index="10"></ext_resource>
 	<ext_resource path="res://sounds/mage_shoot.smp" type="Sample" index="13"></ext_resource>
 	<ext_resource path="res://images/hubbg1.png" type="Texture" index="26"></ext_resource>
+	<ext_resource path="res://scenes/player.tscn" type="PackedScene" index="8"></ext_resource>
 	<ext_resource path="res://images/tileset.png" type="Texture" index="20"></ext_resource>
+	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="14"></ext_resource>
+	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="3"></ext_resource>
 	<ext_resource path="res://scenes/outer.xml" type="TileSet" index="9"></ext_resource>
-	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://scenes/l1_classmates.xscn" type="PackedScene" index="6"></ext_resource>
 	<ext_resource path="res://images/hubbg3.png" type="Texture" index="24"></ext_resource>
 	<ext_resource path="res://scenes/checkpoint.scn" type="PackedScene" index="11"></ext_resource>
 	<ext_resource path="res://scenes/marker.xscn" type="PackedScene" index="16"></ext_resource>
 	<ext_resource path="res://scenes/l1_bossroom.scn" type="PackedScene" index="5"></ext_resource>
-	<ext_resource path="res://scenes/l1_classmates.xscn" type="PackedScene" index="6"></ext_resource>
-	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://scenes/teleport.xscn" type="PackedScene" index="15"></ext_resource>
+	<ext_resource path="res://scenes/l1_entrance.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://scenes/l1_arenasplit.scn" type="PackedScene" index="4"></ext_resource>
-	<ext_resource path="res://scenes/l1_magestairs.scn" type="PackedScene" index="3"></ext_resource>
-	<ext_resource path="res://scenes/player.tscn" type="PackedScene" index="8"></ext_resource>
-	<ext_resource path="res://scenes/l1_impmix.xscn" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://scenes/anchor.xscn" type="PackedScene" index="14"></ext_resource>
+	<ext_resource path="res://scenes/l1_iciclepit.xscn" type="PackedScene" index="0"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 97, 4 </vector2>
