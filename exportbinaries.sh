@@ -1,3 +1,4 @@
+#!/bin/bash
 godotexec="godot216"
 echo "This script requires godot to be named \`${godotexec}\` in one of your PATH folders to work"
 #Modify the below to change what the godot executable is
