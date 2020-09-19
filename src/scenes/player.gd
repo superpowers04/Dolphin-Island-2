@@ -204,6 +204,11 @@ func _movement(delta):
 			storedxspeed = 0
 			bot_sprite.play("Duck")
 			top_sprite.play("Jump")
+#		if ((velocity.x >= 40 or velocity.x<=-40) ):
+#			if bot_sprite.get_current_animation() == "Slide" and top_sprite.get_current_animation() != "Slide_Attack" :
+#				attack()
+#		elif (velocity.x >= 40 or velocity.x<=-40):
+#			
 	elif !waitingtodie:
 		storedxspeed = 0
 		STOP_FORCE = 1000
@@ -410,6 +415,13 @@ func attack():
 			controller.attackdmg = 1.5
 		else:
 			controller.attackdmg = 1
+#		if (top_sprite.get_current_animation() == "Slide" and top_sprite.get_current_animation() != "Slide_Attack"):
+#			top_sprite.play("Slide_Attack")
+#			print("test")
+#		elif top_sprite.get_current_animation() == "Slide_Attack":
+#			attacking = false
+#			
+#			return
 		if (top_sprite.get_current_animation() != "Attack" and top_sprite.get_current_animation() != "Attack2" and top_sprite.get_current_animation() != "Attack3"):
 			top_sprite.play("Attack")
 		elif (top_sprite.get_current_animation() == "Attack"):
@@ -456,6 +468,7 @@ func _on_Hitbox_body_enter( body ):
 		if (not dead and vulnerable):
 			vulnerable = false
 			effects.play("Invulnerable")
+			velocity.x = 0
 			controller.life_down()
 	elif (body extends killer_class):
 		if (not dead):
