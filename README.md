@@ -5,8 +5,8 @@ Is being used as a project to help with learning how a game works and how to mod
 
 
 ## Downloads:
-<br>https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DIedit.exe for Windows<br>
-https://github.com/superpowers04/Dolphin-Island-2/raw/master/bin/Di2Macfat.zip For MacOS(Cannot garentee Mac build will work)<br>
-https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DIedit32 for Linux 32 Bit<br>
-https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DIedit64 for Linux 64 Bit<br>
-https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DI2.apk for Android port(Works with Controller and Touch)
+<br>[Windows](https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DIedit.exe)<br>
+[MacOS(Cannot garentee Mac build will work)](https://github.com/superpowers04/Dolphin-Island-2/raw/master/bin/Di2Macfat.zip )<br>
+[Linux 32 Bit](https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DIedit32)<br>
+[Linux 64 Bit](https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DIedit64)<br>
+[Android port(Works with Controller and Touch)](https://github.com/superpowers04/Dolphin-Island-2/blob/master/bin/DI2.apk)
